@@ -37,6 +37,8 @@ export default {
     flex-direction: column;
     padding: 40px;
     gap: 20px;
+    position: relative;
+    max-height: 100vh;
 }
 
 .kanban-desk-header {

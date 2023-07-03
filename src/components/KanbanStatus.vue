@@ -35,10 +35,14 @@ export default {
     gap: 12px;
 }
 
-.kanban-status-header__title {
-    border-radius: 20px;
-    background: var(--rose, #FFDCE0);
-    padding: 4px 12px;
+.kanban-status-header{
+
+    .kanban-status-header__title {
+        border-radius: 20px;
+        background: var(--rose, #FFDCE0);
+        padding: 4px 12px;
+    }
+
 }
 
 .kanban-status-row {
