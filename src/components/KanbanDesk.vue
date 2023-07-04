@@ -6,17 +6,28 @@
             <p class="kanban-desk-header__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum a voluptates provident ut odit recusandae non sequi temporibus veniam doloremque cupiditate ratione, fugiat possimus culpa ipsam excepturi repellat reprehenderit iure.</p>
         </div>
 
-        <div class="kanban-status-grid">
-            <KanbanStatus />
-            <KanbanStatus />
-            <KanbanStatus />
+        <div class="kanban-cards-wrap">
+            <div class="kanban-status-grid">
+                <KanbanStatus />
+                <KanbanStatus />
+                <KanbanStatus />
+                <KanbanStatus />
+                <KanbanStatus />
+                <KanbanStatus />
+                <KanbanStatus />
+                <KanbanStatus />
+                <KanbanStatus />
+            </div>
+            <KanbanCardDetail />
         </div>
+
 
     </div>
 </template>
 
 <script>
 import KanbanStatus from './KanbanStatus.vue'
+import KanbanCardDetail from './KanbanCardDetail.vue'
 
 export default {
     setup () {
@@ -25,7 +36,8 @@ export default {
         return {}
     },
     components: {
-        KanbanStatus
+        KanbanStatus,
+        KanbanCardDetail
     }
 }
 </script>
@@ -37,8 +49,7 @@ export default {
     flex-direction: column;
     padding: 40px;
     gap: 20px;
-    position: relative;
-    max-height: 100vh;
+    height: 100vh;
 }
 
 .kanban-desk-header {
@@ -63,6 +74,11 @@ export default {
 
 }
 
+.kanban-cards-wrap {
+    height: 100%;
+    position: relative;
+}
+
 .kanban-status-grid {
     display: flex;
     background: #F8F8F8;
@@ -70,6 +86,7 @@ export default {
     padding: 8px;
     box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     overflow: scroll;
+    height: 100%;
 }
 
 </style>
