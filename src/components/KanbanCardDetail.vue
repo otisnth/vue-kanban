@@ -2,6 +2,7 @@
     <div class="kanban-card-detail">
 
         <div class="detail-header">
+            <img class="detail-header__close" src="@/assets/images/left-arrow.svg" alt="">
             <p class="detail-header__number">N-930</p>
             <h4 class="detail-header__title">Title task</h4>
         </div>
@@ -9,7 +10,7 @@
         <div class="detail-container">
 
             <div class="detail-info">
-                <p class="detail-info__title">Тип:</p>
+                <p class="detail-title">Тип:</p>
                 <div class="detail-info__item">
                     <img src="@/assets/images/bug.svg" alt="" class="detail-info__icon">
                     <p class="detail-info__text">Дефект</p>
@@ -17,41 +18,43 @@
             </div>
 
             <div class="detail-info">
-                <p class="detail-info__title">Приоритет:</p>
+                <p class="detail-title">Приоритет:</p>
                 <div class="detail-info__item">
                     <img src="@/assets/images/prio-low.svg" alt="" class="detail-info__icon">
                     <p class="detail-info__text">Низкий приоритет</p>
                 </div>
             </div>
 
-            <p class="detail-description">Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam deleniti eos aliquid cupiditate corporis hic commodi, dolore vitae necessitatibus voluptas veritatis corrupti, quidem totam reiciendis! Quasi facilis velit accusamus dolore.</p>
+            <p class="detail-description">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam deleniti eos aliquid cupiditate corporis hic commodi, dolore vitae necessitatibus voluptas veritatis corrupti, quidem totam reiciendis! Quasi facilis velit accusamus dolore.
+            </p>
 
             <div class="detail-user">
-                <p class="detail-user__title">Автор: </p>
-                <div class="detail-author">
-                    <img src="@/assets/images/avatar2.png" alt="" class="detail-author__avatar">
-                    <p class="detail-author__name">Lastname Firstname</p>
+                <p class="detail-title">Автор: </p>
+                <div class="detail-user__item">
+                    <img src="@/assets/images/avatar2.png" alt="" class="detail-user__avatar">
+                    <p class="detail-user__author">Lastname Firstname</p>
                 </div>
             </div>
 
             <div class="detail-user">
-                <p class="detail-user__title">Исполнитель: </p>
-                <div class="detail-worker">
-                    <img src="@/assets/images/avatar1.png" alt="" class="detail-worker__avatar">
-                    <select class="detail-worker__name">
+                <p class="detail-title">Исполнитель: </p>
+                <div class="detail-user__item">
+                    <img src="@/assets/images/avatar1.png" alt="" class="detail-user__avatar">
+                    <select class="detail-user__worker">
                         <option value="">Lastname Firstname</option>
                     </select>
                 </div>
             </div>
 
             <div class="detail-date">
-                <p class="detail-date__title">Дата создания: </p>
-                <input type="date" name="" id="" class="detail-date__value" value="2020-01-20">
+                <p class="detail-title">Дата создания: </p>
+                <span class="detail-date__value">20.01.2020</span>
             </div>
 
             <div class="detail-date">
-                <p class="detail-date__title">Дата обновления: </p>
-                <input type="date" name="" id="" class="detail-date__value" value="2020-01-25">
+                <p class="detail-title">Дата обновления: </p>
+                <span class="detail-date__value">25.01.2020</span>
             </div>
 
         </div>
@@ -83,17 +86,37 @@ export default {
     top:0;
     overflow: scroll;
     padding: 40px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
 
     .detail-header {
         display: flex;
         flex-direction: column;
         gap: 10px;
+        font-size: 24px;
+
+        .detail-header__number {
+            color: #5A5A65; 
+        }
+
+        .detail-header__title {
+
+        }
+
+        .detail-header__close {
+            width: 25px;
+        }
     }
 
     .detail-container {
         display: flex;
         flex-direction: column;
         gap: 15px;
+
+        .detail-title {
+            color: #5A5A65;
+        }
 
         .detail-info {
             display: flex;
@@ -103,9 +126,15 @@ export default {
             .detail-info__item {
                 display: flex;
                 gap: 8px;
+                padding-left: 10px;
+                align-items: center;
             }
             .detail-info__icon {
                 width: 20px;
+            }
+
+            .detail-info__text {
+
             }
         }
 
@@ -114,23 +143,32 @@ export default {
             display: flex;
             flex-direction: column;
             gap: 8px;
-
-            .detail-worker {
+            .detail-user__item {
                 display: flex;
-                gap: 8px;
-                .detail-worker__avatar {
+                gap: 16px;
+                align-items: center;
+            }
+            .detail-user__avatar {
                     width: 36px;
                     border-radius: 50%;
-                }
+            }
+            .detail-user__author {
+                
+            }
+            .detail-user__worker {
+                background-color: transparent;
+                border: none;
+                font-size: 16px;
             }
 
-            .detail-author {
-                display: flex;
-                gap: 8px;
-                .detail-author__avatar {
-                    width: 36px;
-                    border-radius: 50%;
-                }
+        }
+
+        .detail-date {
+            display: flex;
+            gap: 8px;
+            align-items: center;
+            .detail-date__value {
+
             }
         }
     }
