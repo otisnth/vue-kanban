@@ -13,7 +13,7 @@
             v-for="(item, index) in statusItem.cards"
             :key="index"
             :cardItem="item"
-            @click="openDetail" 
+            @click="openDetail(item)" 
             />
 
         </div>
@@ -28,8 +28,8 @@ export default {
 
     setup (props, context) {
         
-        function openDetail() {
-            context.emit('openDetail')
+        function openDetail(item) {
+            context.emit('openDetail', item)
         }
 
         return {

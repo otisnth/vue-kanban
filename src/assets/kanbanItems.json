@@ -12,41 +12,44 @@
                 "priorityIcon": "prio-low.svg",
                 "worker": "Работник Месяца",
                 "workerAvatar": "avatar1.png",
-                "author": "",
-                "authorAvatar": "",
-                "description": "",
-                "createDate": "",
-                "updatedate": ""
+                "workerId": 1,
+                "author": "Автор Года",
+                "authorAvatar": "avatar2.png",
+                "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe ipsa eveniet nulla ratione pariatur libero, nobis quos doloribus tenetur placeat laudantium temporibus est voluptate illum vitae! Natus quam libero facilis!",
+                "createDate": "21.01.2020",
+                "updateDate": "27.01.2020"
             },
             {
-                "cardNumber": "ER-777",
-                "cardTitle": "Super task",
+                "cardNumber": "EF-767",
+                "cardTitle": "Not Super task",
                 "type": "Дефект",
                 "typeIcon": "bug.svg",
-                "priority": "Низкий приоритет",
-                "priorityIcon": "prio-low.svg",
+                "priority": "Средний приоритет",
+                "priorityIcon": "prio-middle.svg",
                 "worker": "Работник Месяца",
                 "workerAvatar": "avatar1.png",
+                "workerId": 1,
                 "author": "",
                 "authorAvatar": "",
                 "description": "",
                 "createDate": "",
-                "updatedate": ""
+                "updateDate": ""
             },
             {
-                "cardNumber": "ER-777",
+                "cardNumber": "ER-347",
                 "cardTitle": "Super task",
-                "type": "Дефект",
-                "typeIcon": "bug.svg",
-                "priority": "Низкий приоритет",
-                "priorityIcon": "prio-low.svg",
+                "type": "Задача",
+                "typeIcon": "task.svg",
+                "priority": "Высокий приоритет",
+                "priorityIcon": "prio-high.svg",
                 "worker": "Работник Месяца",
                 "workerAvatar": "avatar1.png",
+                "workerId": 1,
                 "author": "",
                 "authorAvatar": "",
                 "description": "",
                 "createDate": "",
-                "updatedate": ""
+                "updateDate": ""
             }
         ]
     },
@@ -55,7 +58,7 @@
         "statusColor": "#E7E7E7",
         "cards": [
             {
-                "cardNumber": "ER-777",
+                "cardNumber": "AS-127",
                 "cardTitle": "Super task",
                 "type": "Дефект",
                 "typeIcon": "bug.svg",
@@ -63,11 +66,12 @@
                 "priorityIcon": "prio-low.svg",
                 "worker": "Работник Месяца",
                 "workerAvatar": "avatar1.png",
+                "workerId": 1,
                 "author": "",
                 "authorAvatar": "",
                 "description": "",
                 "createDate": "",
-                "updatedate": ""
+                "updateDate": ""
             }
         ]
     },
@@ -76,7 +80,7 @@
         "statusColor": "#FFA390",
         "cards": [
             {
-                "cardNumber": "ER-777",
+                "cardNumber": "QU-317",
                 "cardTitle": "Super task",
                 "type": "Дефект",
                 "typeIcon": "bug.svg",
@@ -84,14 +88,15 @@
                 "priorityIcon": "prio-low.svg",
                 "worker": "Работник Месяца",
                 "workerAvatar": "avatar1.png",
+                "workerId": 1,
                 "author": "",
                 "authorAvatar": "",
                 "description": "",
                 "createDate": "",
-                "updatedate": ""
+                "updateDate": ""
             },
             {
-                "cardNumber": "ER-777",
+                "cardNumber": "EW-7",
                 "cardTitle": "Super task",
                 "type": "Дефект",
                 "typeIcon": "bug.svg",
@@ -99,11 +104,12 @@
                 "priorityIcon": "prio-low.svg",
                 "worker": "Работник Месяца",
                 "workerAvatar": "avatar1.png",
+                "workerId": 1,
                 "author": "",
                 "authorAvatar": "",
                 "description": "",
                 "createDate": "",
-                "updatedate": ""
+                "updateDate": ""
             }
         ]
     },
@@ -112,7 +118,7 @@
         "statusColor": "#FADC70",
         "cards": [
             {
-                "cardNumber": "ER-777",
+                "cardNumber": "AS-255",
                 "cardTitle": "Super task",
                 "type": "Дефект",
                 "typeIcon": "bug.svg",
@@ -120,14 +126,15 @@
                 "priorityIcon": "prio-low.svg",
                 "worker": "Работник Месяца",
                 "workerAvatar": "avatar1.png",
+                "workerId": 1,
                 "author": "",
                 "authorAvatar": "",
                 "description": "",
                 "createDate": "",
-                "updatedate": ""
+                "updateDate": ""
             },
             {
-                "cardNumber": "ER-777",
+                "cardNumber": "F-121",
                 "cardTitle": "Super task",
                 "type": "Дефект",
                 "typeIcon": "bug.svg",
@@ -135,14 +142,15 @@
                 "priorityIcon": "prio-low.svg",
                 "worker": "Работник Месяца",
                 "workerAvatar": "avatar1.png",
+                "workerId": 1,
                 "author": "",
                 "authorAvatar": "",
                 "description": "",
                 "createDate": "",
-                "updatedate": ""
+                "updateDate": ""
             },
             {
-                "cardNumber": "ER-777",
+                "cardNumber": "ER-313",
                 "cardTitle": "Super task",
                 "type": "Дефект",
                 "typeIcon": "bug.svg",
@@ -150,14 +158,15 @@
                 "priorityIcon": "prio-low.svg",
                 "worker": "Работник Месяца",
                 "workerAvatar": "avatar1.png",
+                "workerId": 1,
                 "author": "",
                 "authorAvatar": "",
                 "description": "",
                 "createDate": "",
-                "updatedate": ""
+                "updateDate": ""
             },
             {
-                "cardNumber": "ER-777",
+                "cardNumber": "FR-13",
                 "cardTitle": "Super task",
                 "type": "Дефект",
                 "typeIcon": "bug.svg",
@@ -165,56 +174,12 @@
                 "priorityIcon": "prio-low.svg",
                 "worker": "Работник Месяца",
                 "workerAvatar": "avatar1.png",
+                "workerId": 1,
                 "author": "",
                 "authorAvatar": "",
                 "description": "",
                 "createDate": "",
-                "updatedate": ""
-            },
-            {
-                "cardNumber": "ER-777",
-                "cardTitle": "Super task",
-                "type": "Дефект",
-                "typeIcon": "bug.svg",
-                "priority": "Низкий приоритет",
-                "priorityIcon": "prio-low.svg",
-                "worker": "Работник Месяца",
-                "workerAvatar": "avatar1.png",
-                "author": "",
-                "authorAvatar": "",
-                "description": "",
-                "createDate": "",
-                "updatedate": ""
-            },
-            {
-                "cardNumber": "ER-777",
-                "cardTitle": "Super task",
-                "type": "Дефект",
-                "typeIcon": "bug.svg",
-                "priority": "Низкий приоритет",
-                "priorityIcon": "prio-low.svg",
-                "worker": "Работник Месяца",
-                "workerAvatar": "avatar1.png",
-                "author": "",
-                "authorAvatar": "",
-                "description": "",
-                "createDate": "",
-                "updatedate": ""
-            },
-            {
-                "cardNumber": "ER-777",
-                "cardTitle": "Super task",
-                "type": "Дефект",
-                "typeIcon": "bug.svg",
-                "priority": "Низкий приоритет",
-                "priorityIcon": "prio-low.svg",
-                "worker": "Работник Месяца",
-                "workerAvatar": "avatar1.png",
-                "author": "",
-                "authorAvatar": "",
-                "description": "",
-                "createDate": "",
-                "updatedate": ""
+                "updateDate": ""
             }
         ]
     }

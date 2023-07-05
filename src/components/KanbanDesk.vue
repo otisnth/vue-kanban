@@ -24,7 +24,11 @@
 
             </div>
 
-            <KanbanCardDetail v-if="showDetail" @openDetail="openDetail" />
+            <KanbanCardDetail 
+            v-if="showDetail" 
+            @openDetail="openDetail" 
+            :item="detailCard"
+            />
             
         </div>
 
@@ -44,8 +48,10 @@ export default {
     // emits: [],
     setup (props) {
         const showDetail = ref(false)
+        const detailCard = ref({})
 
-        function openDetail() {
+        function openDetail(item) {
+            detailCard.value = item
             showDetail.value = !showDetail.value
         }
 
@@ -53,6 +59,7 @@ export default {
             showDetail,
             openDetail,
             statusItems: props.kanbanItems,
+            detailCard,
         }
     },
     components: {

@@ -10,11 +10,11 @@
             >
             
             <p class="detail-header__number">
-                N-930
+                {{ detailFields.cardNumber }}
             </p>
 
             <h4 class="detail-header__title">
-                Title task
+                {{ detailFields.cardTitle }}
             </h4>
 
         </div>
@@ -30,12 +30,12 @@
                 <div class="detail-info__item">
 
                     <img 
-                    src="@/assets/images/bug.svg" 
-                    alt="" 
+                    :src='require(`../assets/images/${detailFields.typeIcon}`)'
+                    :alt="detailFields.type" 
                     class="detail-info__icon"
                     >
                     <p class="detail-info__text">
-                        Дефект
+                        {{ detailFields.type }}
                     </p>
 
                 </div>
@@ -51,13 +51,13 @@
                 <div class="detail-info__item">
 
                     <img 
-                    src="@/assets/images/prio-low.svg" 
-                    alt="" 
+                    :src='require(`../assets/images/${detailFields.priorityIcon}`)'
+                    :alt="detailFields.priority" 
                     class="detail-info__icon"
                     >
 
                     <p class="detail-info__text">
-                        Низкий приоритет
+                        {{ detailFields.priority }}
                     </p>
 
                 </div>
@@ -65,7 +65,7 @@
             </div>
 
             <p class="detail-description">
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Magnam deleniti eos aliquid cupiditate corporis hic commodi, dolore vitae necessitatibus voluptas veritatis corrupti, quidem totam reiciendis! Quasi facilis velit accusamus dolore.
+                {{ detailFields.description }}
             </p>
 
             <div class="detail-user">
@@ -77,13 +77,13 @@
                 <div class="detail-user__item">
 
                     <img 
-                    src="@/assets/images/avatar2.png" 
-                    alt="" 
+                    :src='require(`../assets/images/${detailFields.authorAvatar}`)' 
+                    alt="Аватар" 
                     class="detail-user__avatar"
                     >
 
                     <p class="detail-user__author">
-                        Lastname Firstname
+                        {{ detailFields.author }}
                     </p>
 
                 </div>
@@ -99,13 +99,15 @@
                 <div class="detail-user__item">
 
                     <img 
-                    src="@/assets/images/avatar1.png" 
-                    alt="" 
+                    :src='require(`../assets/images/${detailFields.workerAvatar}`)' 
+                    alt="Аватар" 
                     class="detail-user__avatar"
                     >
 
-                    <select class="detail-user__worker">
-                        <option value="">Lastname Firstname</option>
+                    <select class="detail-user__worker" value="2">
+                        <option value="1">Lastname Firstname</option>
+                        <option value="2">Lastname Firstname2</option>
+                        <option value="3">Lastname Firstname3</option>
                     </select>
 
                 </div>
@@ -119,7 +121,7 @@
                 </p>
 
                 <span class="detail-date__value">
-                    20.01.2020
+                    {{ detailFields.createDate }}
                 </span>
 
             </div>
@@ -131,7 +133,7 @@
                 </p>
 
                 <span class="detail-date__value">
-                    25.01.2020
+                    {{ detailFields.updateDate }}
                 </span>
 
             </div>
@@ -143,7 +145,7 @@
 
 <script>
 export default {
-    props: [],
+    props: ['item'],
     emits: ['openDetail'],
     setup (props, context) {
         function closeDetail() {
@@ -152,6 +154,7 @@ export default {
 
         return {
             closeDetail,
+            detailFields: props.item,
         }
     }
 }
