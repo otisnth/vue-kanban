@@ -97,14 +97,15 @@ export default {
 .kanban-cards-wrap {
     height: 100%;
     position: relative;
+    background: #F8F8F8;
+    border-radius: 12px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+    overflow: hidden;
 }
 
 .kanban-status-grid {
     display: flex;
-    background: #F8F8F8;
-    border-radius: 12px;
     padding: 8px;
-    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
     overflow: scroll;
     height: 100%;
 }
