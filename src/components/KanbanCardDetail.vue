@@ -2,27 +2,66 @@
     <div class="kanban-card-detail">
 
         <div class="detail-header">
-            <img class="detail-header__close" src="@/assets/images/left-arrow.svg" alt="" @click="closeDetail">
-            <p class="detail-header__number">N-930</p>
-            <h4 class="detail-header__title">Title task</h4>
+
+            <img class="detail-header__close" 
+            src="@/assets/images/left-arrow.svg" 
+            alt="" 
+            @click="closeDetail"
+            >
+            
+            <p class="detail-header__number">
+                N-930
+            </p>
+
+            <h4 class="detail-header__title">
+                Title task
+            </h4>
+
         </div>
 
         <div class="detail-container">
 
             <div class="detail-info">
-                <p class="detail-title">Тип:</p>
+
+                <p class="detail-title">
+                    Тип:
+                </p>
+
                 <div class="detail-info__item">
-                    <img src="@/assets/images/bug.svg" alt="" class="detail-info__icon">
-                    <p class="detail-info__text">Дефект</p>
+
+                    <img 
+                    src="@/assets/images/bug.svg" 
+                    alt="" 
+                    class="detail-info__icon"
+                    >
+                    <p class="detail-info__text">
+                        Дефект
+                    </p>
+
                 </div>
+
             </div>
 
             <div class="detail-info">
-                <p class="detail-title">Приоритет:</p>
+
+                <p class="detail-title">
+                    Приоритет:
+                </p>
+
                 <div class="detail-info__item">
-                    <img src="@/assets/images/prio-low.svg" alt="" class="detail-info__icon">
-                    <p class="detail-info__text">Низкий приоритет</p>
+
+                    <img 
+                    src="@/assets/images/prio-low.svg" 
+                    alt="" 
+                    class="detail-info__icon"
+                    >
+
+                    <p class="detail-info__text">
+                        Низкий приоритет
+                    </p>
+
                 </div>
+
             </div>
 
             <p class="detail-description">
@@ -30,35 +69,75 @@
             </p>
 
             <div class="detail-user">
-                <p class="detail-title">Автор: </p>
+
+                <p class="detail-title">
+                    Автор: 
+                </p>
+
                 <div class="detail-user__item">
-                    <img src="@/assets/images/avatar2.png" alt="" class="detail-user__avatar">
-                    <p class="detail-user__author">Lastname Firstname</p>
+
+                    <img 
+                    src="@/assets/images/avatar2.png" 
+                    alt="" 
+                    class="detail-user__avatar"
+                    >
+
+                    <p class="detail-user__author">
+                        Lastname Firstname
+                    </p>
+
                 </div>
+
             </div>
 
             <div class="detail-user">
-                <p class="detail-title">Исполнитель: </p>
+
+                <p class="detail-title">
+                    Исполнитель: 
+                </p>
+
                 <div class="detail-user__item">
-                    <img src="@/assets/images/avatar1.png" alt="" class="detail-user__avatar">
+
+                    <img 
+                    src="@/assets/images/avatar1.png" 
+                    alt="" 
+                    class="detail-user__avatar"
+                    >
+
                     <select class="detail-user__worker">
                         <option value="">Lastname Firstname</option>
                     </select>
+
                 </div>
+
             </div>
 
             <div class="detail-date">
-                <p class="detail-title">Дата создания: </p>
-                <span class="detail-date__value">20.01.2020</span>
+
+                <p class="detail-title">
+                    Дата создания: 
+                </p>
+
+                <span class="detail-date__value">
+                    20.01.2020
+                </span>
+
             </div>
 
             <div class="detail-date">
-                <p class="detail-title">Дата обновления: </p>
-                <span class="detail-date__value">25.01.2020</span>
+
+                <p class="detail-title">
+                    Дата обновления: 
+                </p>
+
+                <span class="detail-date__value">
+                    25.01.2020
+                </span>
+
             </div>
 
         </div>
-        
+
     </div>
 </template>
 

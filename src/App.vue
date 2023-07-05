@@ -1,18 +1,53 @@
 <template>
     <div class="container">
-        <KanbanDesk />
+        <KanbanDesk :kanbanItems="kanbanItems"/>
     </div>
 </template>
 
 <script>
 
+import {
+    ref,
+} from 'vue'
+
 import KanbanDesk from './components/KanbanDesk.vue';
 
 export default {
     setup () {
-        
+        const kanbanItems = ref(
+            [
+                {
+                    statusTitle: 'В работе',
+                    statusColor: '#FFDCE0',
+                    cards: [
+                        {
+                            cardNumber: 'ER-777',
+                            cardTitle: 'Super task',
+                            type: 'Дефект',
+                            typeIcon: 'bug.svg',
+                            priority: 'Низкий приоритет',
+                            priorityIcon: 'prio-low.svg',
+                            worker: 'Работник Месяца',
+                            workerAvatar: 'avatar1.png',
+                            author: '',
+                            authorAvatar: '',
+                            description: '',
+                            createDate: '',
+                            updatedate: ''
+                        },
+                        // {},
+                        // {}
+                    ]
+                },
+                // {},
+                // {},
+                // {}
+            ]
+        )
 
-        return {}
+        return {
+            kanbanItems,
+        }
     },
     components: {
         KanbanDesk,

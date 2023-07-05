@@ -2,25 +2,31 @@
     <div class="kanban-desk">
 
         <div class="kanban-desk-header">
-            <h1 class="kanban-desk-header__title">Доска</h1>
-            <p class="kanban-desk-header__description">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum a voluptates provident ut odit recusandae non sequi temporibus veniam doloremque cupiditate ratione, fugiat possimus culpa ipsam excepturi repellat reprehenderit iure.</p>
+            <h1 class="kanban-desk-header__title">
+                Доска
+            </h1>
+
+            <p class="kanban-desk-header__description">
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum a voluptates provident ut odit recusandae non sequi temporibus veniam doloremque cupiditate ratione, fugiat possimus culpa ipsam excepturi repellat reprehenderit iure.
+            </p>
         </div>
 
         <div class="kanban-cards-wrap">
-            <div class="kanban-status-grid">
-                <KanbanStatus @openDetail="openDetail"/>
-                <KanbanStatus @openDetail="openDetail"/>
-                <KanbanStatus @openDetail="openDetail"/>
-                <KanbanStatus @openDetail="openDetail"/>
-                <KanbanStatus @openDetail="openDetail"/>
-                <KanbanStatus @openDetail="openDetail"/>
-                <KanbanStatus @openDetail="openDetail"/>
-                <KanbanStatus @openDetail="openDetail"/>
-                <KanbanStatus @openDetail="openDetail"/>
-            </div>
-            <KanbanCardDetail v-if="showDetail" @openDetail="openDetail" />
-        </div>
 
+            <div class="kanban-status-grid">
+
+                <KanbanStatus
+                v-for="(item, index) in statusItems"
+                :key="index"
+                :statusItems="item"
+                @openDetail="openDetail"
+                />
+
+            </div>
+
+            <KanbanCardDetail v-if="showDetail" @openDetail="openDetail" />
+            
+        </div>
 
     </div>
 </template>
@@ -34,9 +40,9 @@ import KanbanStatus from './KanbanStatus.vue'
 import KanbanCardDetail from './KanbanCardDetail.vue'
 
 export default {
-    // props: [],
+    props: ['kanbanItems'],
     // emits: [],
-    setup () {
+    setup (props) {
         const showDetail = ref(false)
 
         function openDetail() {
@@ -46,6 +52,7 @@ export default {
         return {
             showDetail,
             openDetail,
+            statusItems: props.kanbanItems,
         }
     },
     components: {

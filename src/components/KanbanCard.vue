@@ -1,25 +1,55 @@
 <template>
     <div class="kanban-card">
-        <div class="kanban-card__number">N-930</div>
-        <h4 class="kanban-card__title">Title task</h4>
+
+        <div class="kanban-card__number">
+            {{ cardFields.cardNumber }}
+        </div>
+
+        <h4 class="kanban-card__title">
+            {{ cardFields.cardTitle }}
+        </h4>
+
         <div class="kanban-card__property">
-            <img class="kanban-card__icon" src="@/assets/images/bug.svg" alt="Дефект" title="Дефект">
-            <img class="kanban-card__icon" src="@/assets/images/prio-low.svg" alt="Низкий приоритет" title="Низкий приоритет">
+
+            <img class="kanban-card__icon" 
+            :src='require(`../assets/images/${cardFields.typeIcon}`)'
+            :alt="cardFields.type" 
+            :title="cardFields.type"
+            >
+
+            <img class="kanban-card__icon" 
+            :src='require(`../assets/images/${cardFields.priorityIcon}`)'
+            :alt="cardFields.priority" 
+            :title="cardFields.priority"
+            >
+
         </div>
+
         <div class="kanban-card__worker">
-            <img class="kanban-card__avatar" src="@/assets/images/avatar1.png" alt="Аватар">
-            <p class="kanban-card__worker-name">Lastname Firstname</p>
+
+            <img class="kanban-card__avatar" 
+            :src='require(`../assets/images/${cardFields.workerAvatar}`)' 
+            alt="Аватар"
+            >
+
+            <p class="kanban-card__worker-name">
+                {{ cardFields.worker }}
+            </p>
+
         </div>
+
     </div>
 </template>
 
 <script>
 export default {
-    // props: [],
+    props: ['cardItem'],
     // emits: [],
-    setup () {
+    setup (props) {
 
-        return {}
+        return {
+            cardFields: props.cardItem,
+        }
     }
 }
 </script>
