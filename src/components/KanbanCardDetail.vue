@@ -2,7 +2,7 @@
     <div class="kanban-card-detail">
 
         <div class="detail-header">
-            <img class="detail-header__close" src="@/assets/images/left-arrow.svg" alt="">
+            <img class="detail-header__close" src="@/assets/images/left-arrow.svg" alt="" @click="closeDetail">
             <p class="detail-header__number">N-930</p>
             <h4 class="detail-header__title">Title task</h4>
         </div>
@@ -64,10 +64,16 @@
 
 <script>
 export default {
-    setup () {
-        
+    props: [],
+    emits: ['openDetail'],
+    setup (props, context) {
+        function closeDetail() {
+            context.emit('openDetail')
+        }
 
-        return {}
+        return {
+            closeDetail,
+        }
     }
 }
 </script>

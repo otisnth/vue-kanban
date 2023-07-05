@@ -5,9 +5,9 @@
         </div>
 
         <div class="kanban-status-row">
-            <KanbanCard />
-            <KanbanCard />
-            <KanbanCard />
+            <KanbanCard @click="openDetail" />
+            <KanbanCard @click="openDetail" />
+            <KanbanCard @click="openDetail" />
         </div>
     </div>
 </template>
@@ -15,13 +15,21 @@
 <script>
 import KanbanCard from './KanbanCard.vue';
 export default {
-    setup () {
-        
+    props: [],
+    emits: ['openDetail'],
 
-        return {}
+    setup (props, context) {
+        
+        function openDetail() {
+            context.emit('openDetail')
+        }
+
+        return {
+            openDetail
+        }
     },
     components: {
-        KanbanCard
+        KanbanCard,
     }
 }
 </script>

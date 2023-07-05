@@ -15,6 +15,8 @@
 
 <script>
 export default {
+    // props: [],
+    // emits: [],
     setup () {
 
         return {}

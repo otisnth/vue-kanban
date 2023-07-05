@@ -8,17 +8,17 @@
 
         <div class="kanban-cards-wrap">
             <div class="kanban-status-grid">
-                <KanbanStatus />
-                <KanbanStatus />
-                <KanbanStatus />
-                <KanbanStatus />
-                <KanbanStatus />
-                <KanbanStatus />
-                <KanbanStatus />
-                <KanbanStatus />
-                <KanbanStatus />
+                <KanbanStatus @openDetail="openDetail"/>
+                <KanbanStatus @openDetail="openDetail"/>
+                <KanbanStatus @openDetail="openDetail"/>
+                <KanbanStatus @openDetail="openDetail"/>
+                <KanbanStatus @openDetail="openDetail"/>
+                <KanbanStatus @openDetail="openDetail"/>
+                <KanbanStatus @openDetail="openDetail"/>
+                <KanbanStatus @openDetail="openDetail"/>
+                <KanbanStatus @openDetail="openDetail"/>
             </div>
-            <KanbanCardDetail />
+            <KanbanCardDetail v-if="showDetail" @openDetail="openDetail" />
         </div>
 
 
@@ -26,14 +26,27 @@
 </template>
 
 <script>
+import {
+    ref,
+} from 'vue'
+
 import KanbanStatus from './KanbanStatus.vue'
 import KanbanCardDetail from './KanbanCardDetail.vue'
 
 export default {
+    // props: [],
+    // emits: [],
     setup () {
-        
+        const showDetail = ref(false)
 
-        return {}
+        function openDetail() {
+            showDetail.value = !showDetail.value
+        }
+
+        return {
+            showDetail,
+            openDetail,
+        }
     },
     components: {
         KanbanStatus,
