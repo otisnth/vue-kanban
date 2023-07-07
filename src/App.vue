@@ -1,6 +1,11 @@
 <template>
     <div class="container">
-        <KanbanDesk :kanbanItems="kanbanItems"/>
+        <KanbanDesk 
+            :kanbanCards="kanbanCards"
+            :kanbanWorkers="kanbanWorkers"
+            :kanbanStatuses="kanbanStatuses"
+            @changeStatus="changeStatus"
+        />
     </div>
 </template>
 
@@ -11,14 +16,29 @@ import {
 } from 'vue'
 
 import KanbanDesk from './components/KanbanDesk.vue';
-import kanbanItemsJson from './assets/kanbanItems.json'
+import kanbanCardsJson from './assets/kanbanCards.json'
+import kanbanWorkersJson from './assets/kanbanWorkers.json'
+import kanbanStatusesJson from './assets/kanbanStatuses.json'
 
 export default {
     setup () {
-        const kanbanItems = ref(kanbanItemsJson)
+        const kanbanCards = ref(kanbanCardsJson)
+        const kanbanWorkers = ref(kanbanWorkersJson)
+        const kanbanStatuses = ref(kanbanStatusesJson)
+
+        function changeStatus(itemId, statusId) {
+            kanbanCards.value = kanbanCards.value.map(x => {
+                if (x.cardNumber == itemId)
+                    x.status = statusId
+                return x
+            })
+        }
 
         return {
-            kanbanItems,
+            kanbanCards,
+            kanbanWorkers,
+            kanbanStatuses,
+            changeStatus
         }
     },
     components: {

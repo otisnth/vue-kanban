@@ -16,18 +16,21 @@
             <div class="kanban-status-grid">
 
                 <KanbanStatus
-                v-for="(item, index) in statusItems"
-                :key="index"
-                :statusItems="item"
+                v-for="item in statuses"
+                :key="item.statusId"
+                :status="item"
+                :cards="cards"
                 @openDetail="openDetail"
+                @changeStatus="changeStatus"
                 />
 
             </div>
 
             <KanbanCardDetail 
             v-if="showDetail" 
-            @openDetail="openDetail" 
+            @closeDetail="closeDetail" 
             :item="detailCard"
+            :workers="workers"
             />
             
         </div>
@@ -44,22 +47,34 @@ import KanbanStatus from './KanbanStatus.vue'
 import KanbanCardDetail from './KanbanCardDetail.vue'
 
 export default {
-    props: ['kanbanItems'],
-    // emits: [],
-    setup (props) {
+    props: ['kanbanCards', 'kanbanWorkers', 'kanbanStatuses'],
+    emits: ['changeStatus'],
+    setup (props, context) {
         const showDetail = ref(false)
         const detailCard = ref({})
 
         function openDetail(item) {
             detailCard.value = item
-            showDetail.value = !showDetail.value
+            showDetail.value = true
         }
 
+        function closeDetail() {
+            showDetail.value = false
+        }
+
+        function changeStatus(itemId, statusId) {
+            context.emit('changeStatus', itemId, statusId)
+        }
+        
         return {
             showDetail,
             openDetail,
-            statusItems: props.kanbanItems,
+            closeDetail,
+            statuses: props.kanbanStatuses,
+            workers: props.kanbanWorkers,
+            cards: props.kanbanCards,
             detailCard,
+            changeStatus
         }
     },
     components: {

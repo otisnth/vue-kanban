@@ -1,0 +1,22 @@
+[
+    {
+        "statusId": 0,
+        "statusTitle": "Проектирование",
+        "statusColor": "#FFDCE0"
+    },
+    {
+        "statusId": 1,
+        "statusTitle": "Обсуждение",
+        "statusColor": "#E7E7E7"
+    },
+    {
+        "statusId": 2,
+        "statusTitle": "В работе",
+        "statusColor": "#FFA390"
+    },
+    {
+        "statusId": 3,
+        "statusTitle": "Оценка",
+        "statusColor": "#FADC70"
+    }
+]

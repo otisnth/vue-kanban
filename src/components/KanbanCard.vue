@@ -28,12 +28,12 @@
         <div class="kanban-card__worker">
 
             <img class="kanban-card__avatar" 
-            :src='require(`../assets/images/${cardFields.workerAvatar}`)' 
+            :src='require(`../assets/images/${cardFields.worker.workerAvatar}`)' 
             alt="Аватар"
             >
 
             <p class="kanban-card__worker-name">
-                {{ cardFields.worker }}
+                {{ cardFields.worker.workerName }}
             </p>
 
         </div>

@@ -1,0 +1,32 @@
+[
+    {
+        "workerName": "Иван Иванов",
+        "workerAvatar": "avatar1.png",
+        "workerId": 0
+    },
+    {
+        "workerName": "Петр Петров",
+        "workerAvatar": "avatar2.png",
+        "workerId": 1
+    },
+    {
+        "workerName": "Руслан Васильев",
+        "workerAvatar": "avatar3.png",
+        "workerId": 2
+    },
+    {
+        "workerName": "Сергей Пушкин",
+        "workerAvatar": "avatar4.png",
+        "workerId": 3
+    },
+    {
+        "workerName": "Савелий Маяковский",
+        "workerAvatar": "avatar5.png",
+        "workerId": 4
+    },
+    {
+        "workerName": "Александр Малышев",
+        "workerAvatar": "avatar6.png",
+        "workerId": 5
+    }
+]

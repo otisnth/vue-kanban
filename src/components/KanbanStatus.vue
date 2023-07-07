@@ -1,5 +1,9 @@
 <template>
-    <div class="kanban-status">
+    <div class="kanban-status"
+        @drop="onDrop($event, statusItem.statusId)"
+        @dragenter.prevent
+        @dragover.prevent
+        >
 
         <div class="kanban-status-header" :style="{'background-color': statusItem.statusColor}">
             <h3 class="kanban-status-header__title">
@@ -10,10 +14,12 @@
         <div class="kanban-status-row">
 
             <KanbanCard
-            v-for="(item, index) in statusItem.cards"
-            :key="index"
-            :cardItem="item"
-            @click="openDetail(item)" 
+                v-for="item in cardItems.filter(x => x.status == statusItem.statusId)"
+                :key="item.cardNumber"
+                :cardItem="item"
+                @click="openDetail(item)"
+                draggable="true"
+                @dragstart="startDrag($event, item)"
             />
 
         </div>
@@ -23,8 +29,8 @@
 <script>
 import KanbanCard from './KanbanCard.vue';
 export default {
-    props: ['statusItems'],
-    emits: ['openDetail'],
+    props: ['status', 'cards'],
+    emits: ['openDetail', 'changeStatus'],
 
     setup (props, context) {
         
@@ -32,9 +38,23 @@ export default {
             context.emit('openDetail', item)
         }
 
+        function startDrag(evt, item) {
+            evt.dataTransfer.dropEffect = 'move'
+            evt.dataTransfer.effectAllowed = 'move'
+            evt.dataTransfer.setData('itemId', item.cardNumber)
+        }
+
+        function onDrop(evt, statusId) {
+            const itemId = evt.dataTransfer.getData('itemId')
+            context.emit('changeStatus', itemId, statusId)
+        }
+
         return {
             openDetail,
-            statusItem: props.statusItems,
+            statusItem: props.status,
+            cardItems: props.cards,
+            startDrag,
+            onDrop,
         }
     },
     components: {
@@ -53,6 +73,7 @@ export default {
 }
 
 .kanban-status-header {
+    width: 200px;
     border-radius: 20px;
     background: #fff;
 

@@ -83,7 +83,7 @@
                     >
 
                     <p class="detail-user__author">
-                        {{ detailFields.author }}
+                        {{ detailFields.authorName }}
                     </p>
 
                 </div>
@@ -99,15 +99,17 @@
                 <div class="detail-user__item">
 
                     <img 
-                    :src='require(`../assets/images/${detailFields.workerAvatar}`)' 
+                    :src='require(`../assets/images/${detailFields.worker.workerAvatar}`)' 
                     alt="Аватар" 
                     class="detail-user__avatar"
                     >
 
-                    <select class="detail-user__worker" value="2">
-                        <option value="1">Lastname Firstname</option>
-                        <option value="2">Lastname Firstname2</option>
-                        <option value="3">Lastname Firstname3</option>
+                    <select class="detail-user__worker" :value="detailFields.worker.workerId">
+                        <option v-for="item in workersList"
+                        :key="item.workerId"
+                        :value="item.workerId">
+                            {{ item.workerName }}
+                        </option>
                     </select>
 
                 </div>
@@ -145,16 +147,17 @@
 
 <script>
 export default {
-    props: ['item'],
+    props: ['item', 'workers'],
     emits: ['openDetail'],
     setup (props, context) {
         function closeDetail() {
-            context.emit('openDetail')
+            context.emit('closeDetail')
         }
 
         return {
             closeDetail,
             detailFields: props.item,
+            workersList: props.workers,
         }
     }
 }
