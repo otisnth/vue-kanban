@@ -167,6 +167,7 @@ import {
     ref,
     computed,
     watch,
+    onRenderTracked
 } from 'vue'
 
 export default {
@@ -179,18 +180,28 @@ export default {
         // const heightDescription = ref(0)
         const workersList = ref(props.workers)
 
-        const itemList = ref(props.item)
+        // const itemList = ref(props.item)
 
         function closeDetail() {
             context.emit('closeDetail')
         }
 
+        onRenderTracked(() => {
+            changeTitle.value = false
+            changeDescription.value = false
+        })
+
         const detailFields = computed(() => {
-            return itemList.value
+            return props.item
         })
 
         watch(detailFields.value, () => {
             detailFields.value.worker = workersList.value.find(obj => obj.workerId === detailFields.value.worker.workerId)
+            let now = new Date()
+            detailFields.value.updateDate = now.getDate() + '.'
+                                        + now.getMonth() + '.'
+                                        + now.getFullYear()
+            console.log(detailFields.value.updateDate);
         })
 
         return {
@@ -241,15 +252,15 @@ export default {
                 font-weight: 700;
                 border: 1px solid transparent;
                 background-color: transparent;
+                border-bottom: 1px solid #5A5A65;
             }
 
             input:disabled {
                 color: #000;
+                border: 1px solid transparent;
             }
 
             input:focus {
-                border: 1px solid transparent;
-                border-bottom: 1px solid #5A5A65;
                 outline: none;
             }
 
@@ -304,15 +315,15 @@ export default {
                 background-color: transparent;
                 resize: none;
                 overflow: hidden;
+                border-bottom: 1px solid #5A5A65;
             }
 
             textarea:disabled {
                 color: #000;
+                border: 1px solid transparent;
             }
 
             textarea:focus {
-                border: 1px solid transparent;
-                border-bottom: 1px solid #5A5A65;
                 outline: none;
             }
 

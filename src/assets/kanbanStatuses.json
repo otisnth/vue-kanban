@@ -18,5 +18,10 @@
         "statusId": 3,
         "statusTitle": "Оценка",
         "statusColor": "#FADC70"
+    },
+    {
+        "statusId": 4,
+        "statusTitle": "Исправление",
+        "statusColor": "#FF9390"
     }
 ]

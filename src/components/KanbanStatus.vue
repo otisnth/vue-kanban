@@ -33,16 +33,21 @@
 </template>
 
 <script>
+import {
+    ref
+} from 'vue'
 import KanbanCard from './KanbanCard.vue';
 export default {
     props: ['status', 'cards'],
-    emits: ['openDetail', 'changeStatus'],
+    emits: ['openDetail'],
 
     setup (props, context) {
         
         function openDetail(item) {
             context.emit('openDetail', item)
         }
+
+        const cardItems = ref(props.cards)
 
         function startDrag(evt, item) {
             let draggedItem = document.querySelector(`#${item.cardNumber}`)
@@ -64,13 +69,17 @@ export default {
 
         function onDrop(evt, statusId) {
             const itemId = evt.dataTransfer.getData('itemId')
-            context.emit('changeStatus', itemId, statusId)
+            cardItems.value = cardItems.value.map(x => {
+                if (x.cardNumber == itemId)
+                    x.status = statusId
+                return x
+            })
         }
 
         return {
             openDetail,
             statusItem: props.status,
-            cardItems: props.cards,
+            cardItems,
             startDrag,
             stopDrag,
             onDrop,

@@ -21,7 +21,6 @@
                     :status="item"
                     :cards="cards"
                     @openDetail="openDetail"
-                    @changeStatus="changeStatus"
                 />
 
             </div>
@@ -48,8 +47,8 @@ import KanbanCardDetail from './KanbanCardDetail.vue'
 
 export default {
     props: ['kanbanCards', 'kanbanWorkers', 'kanbanStatuses'],
-    emits: ['changeStatus'],
-    setup (props, context) {
+    emits: [],
+    setup (props) {
         const showDetail = ref(false)
         const detailCard = ref({})
 
@@ -61,10 +60,6 @@ export default {
         function closeDetail() {
             showDetail.value = false
         }
-
-        function changeStatus(itemId, statusId) {
-            context.emit('changeStatus', itemId, statusId)
-        }
         
         return {
             showDetail,
@@ -74,7 +69,6 @@ export default {
             workers: props.kanbanWorkers,
             cards: props.kanbanCards,
             detailCard,
-            changeStatus
         }
     },
     components: {

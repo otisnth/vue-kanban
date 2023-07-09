@@ -4,7 +4,7 @@
             :kanbanCards="kanbanCards"
             :kanbanWorkers="kanbanWorkers"
             :kanbanStatuses="kanbanStatuses"
-            @changeStatus="changeStatus"
+
         />
     </div>
 </template>
@@ -26,19 +26,10 @@ export default {
         const kanbanWorkers = ref(kanbanWorkersJson)
         const kanbanStatuses = ref(kanbanStatusesJson)
 
-        function changeStatus(itemId, statusId) {
-            kanbanCards.value = kanbanCards.value.map(x => {
-                if (x.cardNumber == itemId)
-                    x.status = statusId
-                return x
-            })
-        }
-
         return {
             kanbanCards,
             kanbanWorkers,
             kanbanStatuses,
-            changeStatus
         }
     },
     components: {
