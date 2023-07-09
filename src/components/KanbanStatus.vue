@@ -16,10 +16,12 @@
             <KanbanCard
                 v-for="item in cardItems.filter(x => x.status == statusItem.statusId)"
                 :key="item.cardNumber"
+                :id="item.cardNumber"
                 :cardItem="item"
                 @click="openDetail(item)"
                 draggable="true"
                 @dragstart="startDrag($event, item)"
+                @dragend="stopDrag($event, item)"
             />
 
         </div>
@@ -39,9 +41,21 @@ export default {
         }
 
         function startDrag(evt, item) {
-            evt.dataTransfer.dropEffect = 'move'
-            evt.dataTransfer.effectAllowed = 'move'
+            let draggedItem = document.querySelector(`#${item.cardNumber}`)
+            setTimeout(() => {
+                draggedItem.style.display = 'none'
+            })
+
+            evt.dataTransfer.dropEffect = 'none'
+            evt.dataTransfer.effectAllowed = 'none'
             evt.dataTransfer.setData('itemId', item.cardNumber)
+        }
+        
+        function stopDrag(evt, item) {
+            let draggedItem = document.querySelector(`#${item.cardNumber}`)
+            setTimeout(() => {
+                draggedItem.style.display = 'flex'
+            })
         }
 
         function onDrop(evt, statusId) {
@@ -54,6 +68,7 @@ export default {
             statusItem: props.status,
             cardItems: props.cards,
             startDrag,
+            stopDrag,
             onDrop,
         }
     },
@@ -87,6 +102,7 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    overflow: scroll;
 }
 
 </style>

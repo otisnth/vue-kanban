@@ -66,6 +66,7 @@ export default {
     flex-direction: column;
     gap: 6px;
     font-size: 16px;
+    cursor: pointer;
 
     .kanban-card__number {
         font-weight: 600;
