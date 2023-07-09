@@ -4,18 +4,26 @@
         <div class="detail-header">
 
             <img class="detail-header__close" 
-            src="@/assets/images/left-arrow.svg" 
-            alt="" 
-            @click="closeDetail"
+                src="@/assets/images/left-arrow.svg" 
+                alt="Назад" 
+                @click="closeDetail"
             >
             
             <p class="detail-header__number">
                 {{ detailFields.cardNumber }}
             </p>
 
-            <h4 class="detail-header__title">
-                {{ detailFields.cardTitle }}
-            </h4>
+            <div class="detail-header__title">
+                <input type="text" 
+                    v-model="detailFields.cardTitle"
+                    :disabled="!changeTitle"
+                >
+                <img 
+                    src="@/assets/images/pen.svg" 
+                    alt="Изменить"
+                    @click="()=>{changeTitle = !changeTitle}"
+                >
+            </div>
 
         </div>
 
@@ -30,9 +38,9 @@
                 <div class="detail-info__item">
 
                     <img 
-                    :src='require(`../assets/images/${detailFields.typeIcon}`)'
-                    :alt="detailFields.type" 
-                    class="detail-info__icon"
+                        :src='require(`../assets/images/${detailFields.typeIcon}`)'
+                        :alt="detailFields.type" 
+                        class="detail-info__icon"
                     >
                     <p class="detail-info__text">
                         {{ detailFields.type }}
@@ -51,9 +59,9 @@
                 <div class="detail-info__item">
 
                     <img 
-                    :src='require(`../assets/images/${detailFields.priorityIcon}`)'
-                    :alt="detailFields.priority" 
-                    class="detail-info__icon"
+                        :src='require(`../assets/images/${detailFields.priorityIcon}`)'
+                        :alt="detailFields.priority" 
+                        class="detail-info__icon"
                     >
 
                     <p class="detail-info__text">
@@ -64,9 +72,18 @@
 
             </div>
 
-            <p class="detail-description">
-                {{ detailFields.description }}
-            </p>
+            <div class="detail-description">
+                <textarea rows="2"
+                    v-model="detailFields.description"
+                    :disabled="!changeDescription"
+                    placeholder="Описание"
+                ></textarea>
+                <img 
+                    src="@/assets/images/pen.svg" 
+                    alt="Изменить"
+                    @click="()=>{changeDescription = !changeDescription}"
+                >
+            </div>
 
             <div class="detail-user">
 
@@ -77,9 +94,9 @@
                 <div class="detail-user__item">
 
                     <img 
-                    :src='require(`../assets/images/${detailFields.authorAvatar}`)' 
-                    alt="Аватар" 
-                    class="detail-user__avatar"
+                        :src='require(`../assets/images/${detailFields.authorAvatar}`)' 
+                        alt="Аватар" 
+                        class="detail-user__avatar"
                     >
 
                     <p class="detail-user__author">
@@ -99,16 +116,16 @@
                 <div class="detail-user__item">
 
                     <img 
-                    :src='require(`../assets/images/${detailFields.worker.workerAvatar}`)' 
-                    alt="Аватар" 
-                    class="detail-user__avatar"
+                        :src='require(`../assets/images/${detailFields.worker.workerAvatar}`)' 
+                        alt="Аватар" 
+                        class="detail-user__avatar"
                     >
 
-                    <select class="detail-user__worker" :value="detailFields.worker.workerId">
+                    <select class="detail-user__worker" v-model="detailFields.worker.workerId">
                         <option v-for="item in workersList"
-                        :key="item.workerId"
-                        :value="item.workerId">
-                            {{ item.workerName }}
+                            :key="item.workerId"
+                            :value="item.workerId">
+                                {{ item.workerName }}
                         </option>
                     </select>
 
@@ -146,18 +163,42 @@
 </template>
 
 <script>
+import {
+    ref,
+    computed,
+    watch,
+} from 'vue'
+
 export default {
     props: ['item', 'workers'],
     emits: ['openDetail'],
     setup (props, context) {
+
+        const changeTitle = ref(false)
+        const changeDescription = ref(false)
+        // const heightDescription = ref(0)
+        const workersList = ref(props.workers)
+
+        const itemList = ref(props.item)
+
         function closeDetail() {
             context.emit('closeDetail')
         }
 
+        const detailFields = computed(() => {
+            return itemList.value
+        })
+
+        watch(detailFields.value, () => {
+            detailFields.value.worker = workersList.value.find(obj => obj.workerId === detailFields.value.worker.workerId)
+        })
+
         return {
+            changeTitle,
+            changeDescription,
             closeDetail,
-            detailFields: props.item,
-            workersList: props.workers,
+            detailFields,
+            workersList,
         }
     }
 }
@@ -192,6 +233,29 @@ export default {
         }
 
         .detail-header__title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            input {
+                font-size: 24px;
+                font-weight: 700;
+                border: 1px solid transparent;
+                background-color: transparent;
+            }
+
+            input:disabled {
+                color: #000;
+            }
+
+            input:focus {
+                border: 1px solid transparent;
+                border-bottom: 1px solid #5A5A65;
+                outline: none;
+            }
+
+            img {
+                width: 18px;
+            }
 
         }
 
@@ -226,6 +290,34 @@ export default {
 
             .detail-info__text {
 
+            }
+        }
+
+        .detail-description {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            textarea {
+                width: 100%;
+                font: inherit;
+                border: 1px solid transparent;
+                background-color: transparent;
+                resize: none;
+                overflow: hidden;
+            }
+
+            textarea:disabled {
+                color: #000;
+            }
+
+            textarea:focus {
+                border: 1px solid transparent;
+                border-bottom: 1px solid #5A5A65;
+                outline: none;
+            }
+
+            img {
+                width: 18px;
             }
         }
 

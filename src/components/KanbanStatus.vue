@@ -9,6 +9,10 @@
             <h3 class="kanban-status-header__title">
                 {{ statusItem.statusTitle }}
             </h3>
+            <input type="color" v-model="statusItem.statusColor" :id="statusItem.statusId">
+            <label :for="statusItem.statusId">
+                <img src="@/assets/images/palette.svg" alt="">
+            </label>
         </div>
 
         <div class="kanban-status-row">
@@ -91,9 +95,29 @@ export default {
     width: 200px;
     border-radius: 20px;
     background: #fff;
+    display: flex;
+    gap: 4px;
+    justify-content: space-between;
+    padding: 4px 12px;
 
     .kanban-status-header__title {
-        padding: 4px 12px;
+        
+    }
+
+    input {
+        display: none;
+        z-index: 0;
+        opacity: 100;
+        width: 18px;
+        position: relative;
+    }
+
+    label {
+        align-self: center;
+    }
+
+    img {
+        width: 18px;
     }
 
 }

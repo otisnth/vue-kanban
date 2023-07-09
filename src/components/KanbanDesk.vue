@@ -16,21 +16,21 @@
             <div class="kanban-status-grid">
 
                 <KanbanStatus
-                v-for="item in statuses"
-                :key="item.statusId"
-                :status="item"
-                :cards="cards"
-                @openDetail="openDetail"
-                @changeStatus="changeStatus"
+                    v-for="item in statuses"
+                    :key="item.statusId"
+                    :status="item"
+                    :cards="cards"
+                    @openDetail="openDetail"
+                    @changeStatus="changeStatus"
                 />
 
             </div>
 
             <KanbanCardDetail 
-            v-if="showDetail" 
-            @closeDetail="closeDetail" 
-            :item="detailCard"
-            :workers="workers"
+                v-if="showDetail" 
+                @closeDetail="closeDetail" 
+                :item="detailCard"
+                :workers="workers"
             />
             
         </div>
