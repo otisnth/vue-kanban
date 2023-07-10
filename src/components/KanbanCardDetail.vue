@@ -121,10 +121,10 @@
                         class="detail-user__avatar"
                     >
 
-                    <select class="detail-user__worker" v-model="detailFields.worker.workerId">
+                    <select class="detail-user__worker" v-model="detailFields.worker">
                         <option v-for="item in workersList"
                             :key="item.workerId"
-                            :value="item.workerId">
+                            :value="item">
                                 {{ item.workerName }}
                         </option>
                     </select>
@@ -177,10 +177,8 @@ export default {
 
         const changeTitle = ref(false)
         const changeDescription = ref(false)
-        // const heightDescription = ref(0)
-        const workersList = ref(props.workers)
 
-        // const itemList = ref(props.item)
+        const workersList = ref(props.workers)
 
         function closeDetail() {
             context.emit('closeDetail')
@@ -195,14 +193,24 @@ export default {
             return props.item
         })
 
-        watch(detailFields.value, () => {
-            detailFields.value.worker = workersList.value.find(obj => obj.workerId === detailFields.value.worker.workerId)
+        watch(detailFields, () => {
+            console.log(1);
+            detailFields.value.worker = workersList.value.find(obj => obj.workerId === detailFields.value.worker.workerId);
             let now = new Date()
-            detailFields.value.updateDate = now.getDate() + '.'
-                                        + now.getMonth() + '.'
-                                        + now.getFullYear()
-            console.log(detailFields.value.updateDate);
+            detailFields.value.updateDate = now.toLocaleDateString()
         })
+
+        watch(
+            () => detailFields.value.worker.workerId,
+            (newWorkerId) => {
+                detailFields.value.worker = workersList.value.find(obj => obj.workerId === newWorkerId)
+                console.log(workersList.value.find(obj => obj.workerId === newWorkerId));
+                // let now = new Date()
+                // console.log(detailFields.value.updateDate);
+                // detailFields.value.updateDate = now.toLocaleDateString()
+                // console.log(detailFields.value.updateDate);
+            }
+        );
 
         return {
             changeTitle,
@@ -228,10 +236,31 @@ export default {
     right: 0;
     top:0;
     overflow: scroll;
+    overflow-x: hidden;
     padding: 40px;
     display: flex;
     flex-direction: column;
     gap: 25px;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+        height: 8px;
+        background-color: transparent;
+        border-radius: 3px;
+    }
+
+    &:hover::-webkit-scrollbar {
+        background-color: #e7e7e7;
+    }
+
+    &:hover::-webkit-scrollbar-thumb {
+        background-color: #5A5A65;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+        border-radius: 3px;
+    }
 
     .detail-header {
         display: flex;
