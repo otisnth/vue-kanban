@@ -45,6 +45,25 @@ export default {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    &::-webkit-scrollbar {
+        width: 6px;
+        height: 8px;
+        background-color: transparent;
+        border-radius: 3px;
+    }
+
+    &:hover::-webkit-scrollbar {
+        background-color: #e7e7e7;
+    }
+
+    &:hover::-webkit-scrollbar-thumb {
+        background-color: #5A5A65;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+        border-radius: 3px;
+    }
 }
 
 #app {

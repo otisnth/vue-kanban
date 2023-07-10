@@ -135,32 +135,8 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 8px;
-    overflow: scroll;
+    overflow-y: scroll;
     overflow-x: hidden;
-
-    scrollbar-color: #5A5A65 #e7e7e7;
-    scrollbar-width: auto;
-
-    &::-webkit-scrollbar {
-        width: 6px;
-        height: 8px;
-        background-color: transparent;
-        border-radius: 3px;
-    }
-
-    &:hover::-webkit-scrollbar {
-        background-color: #e7e7e7;
-    }
-
-    &:hover::-webkit-scrollbar-thumb {
-        background-color: #5A5A65;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background-color: transparent;
-        border-radius: 3px;
-    }
-
 }
 
 </style>

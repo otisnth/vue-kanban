@@ -77,6 +77,7 @@
                     v-model="detailFields.description"
                     :disabled="!changeDescription"
                     placeholder="Описание"
+                    ref="decriptionField"
                 ></textarea>
                 <img 
                     src="@/assets/images/pen.svg" 
@@ -166,8 +167,10 @@
 import {
     ref,
     computed,
-    watch,
-    onRenderTracked
+    // watch,
+    onRenderTracked,
+    onUpdated,
+    onMounted
 } from 'vue'
 
 export default {
@@ -177,6 +180,7 @@ export default {
 
         const changeTitle = ref(false)
         const changeDescription = ref(false)
+        const decriptionField = ref(null)
 
         const workersList = ref(props.workers)
 
@@ -189,28 +193,47 @@ export default {
             changeDescription.value = false
         })
 
+        onUpdated(()=>{
+            decriptionField.value.style.height = "auto"
+            decriptionField.value.style.height = decriptionField.value.scrollHeight + "px"
+        })
+
+        onMounted(()=>{
+            decriptionField.value.style.height = "auto"
+            decriptionField.value.style.height = decriptionField.value.scrollHeight + "px"
+        })
+
         const detailFields = computed(() => {
             return props.item
         })
 
-        watch(detailFields, () => {
-            console.log(1);
-            detailFields.value.worker = workersList.value.find(obj => obj.workerId === detailFields.value.worker.workerId);
-            let now = new Date()
-            detailFields.value.updateDate = now.toLocaleDateString()
-        })
+        // watch(
+        //     () => detailFields,
+        //     (newDetailFields, oldDetailFields) => {
+        //         console.log(newDetailFields);
+        //         console.log(oldDetailFields);
+        //         const keys = Object.keys(newDetailFields).filter(
+        //             (key) => key !== 'updateDate'
+        //         );
 
-        watch(
-            () => detailFields.value.worker.workerId,
-            (newWorkerId) => {
-                detailFields.value.worker = workersList.value.find(obj => obj.workerId === newWorkerId)
-                console.log(workersList.value.find(obj => obj.workerId === newWorkerId));
-                // let now = new Date()
-                // console.log(detailFields.value.updateDate);
-                // detailFields.value.updateDate = now.toLocaleDateString()
-                // console.log(detailFields.value.updateDate);
-            }
-        );
+        //         const hasChanges = keys.some(
+        //             (key) => newDetailFields[key] !== detailFields.value[key]
+        //         );
+
+        //         if (hasChanges) {
+        //             detailFields.value.updateDate = new Date().toLocaleString();
+        //         }
+        //     }
+        // )
+
+        // watch(detailFields.value, (newDetailFields, oldDetailFields) => {
+        //     console.log(newDetailFields);
+        //     console.log(oldDetailFields);
+
+        //     detailFields.value.updateDate = new Date().toLocaleDateString();
+        //     console.log(new Date().toLocaleDateString());
+
+        // })
 
         return {
             changeTitle,
@@ -218,6 +241,7 @@ export default {
             closeDetail,
             detailFields,
             workersList,
+            decriptionField
         }
     }
 }
@@ -235,32 +259,12 @@ export default {
     z-index: 100;
     right: 0;
     top:0;
-    overflow: scroll;
+    overflow-y: scroll;
     overflow-x: hidden;
     padding: 40px;
     display: flex;
     flex-direction: column;
     gap: 25px;
-
-    &::-webkit-scrollbar {
-        width: 6px;
-        height: 8px;
-        background-color: transparent;
-        border-radius: 3px;
-    }
-
-    &:hover::-webkit-scrollbar {
-        background-color: #e7e7e7;
-    }
-
-    &:hover::-webkit-scrollbar-thumb {
-        background-color: #5A5A65;
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background-color: transparent;
-        border-radius: 3px;
-    }
 
     .detail-header {
         display: flex;

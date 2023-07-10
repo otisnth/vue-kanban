@@ -122,7 +122,7 @@ export default {
 .kanban-status-grid {
     display: flex;
     padding: 8px;
-    // overflow: scroll;
+    overflow-x: scroll;
     height: 100%;
 }
 
