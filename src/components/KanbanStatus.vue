@@ -55,8 +55,8 @@ export default {
                 draggedItem.style.display = 'none'
             })
 
-            evt.dataTransfer.dropEffect = 'none'
-            evt.dataTransfer.effectAllowed = 'none'
+            evt.dataTransfer.dropEffect = 'move'
+            evt.dataTransfer.effectAllowed = 'move'
             evt.dataTransfer.setData('itemId', item.cardNumber)
         }
         
@@ -136,6 +136,31 @@ export default {
     flex-direction: column;
     gap: 8px;
     overflow: scroll;
+    overflow-x: hidden;
+
+    scrollbar-color: #5A5A65 #e7e7e7;
+    scrollbar-width: auto;
+
+    &::-webkit-scrollbar {
+        width: 6px;
+        height: 8px;
+        background-color: transparent;
+        border-radius: 3px;
+    }
+
+    &:hover::-webkit-scrollbar {
+        background-color: #e7e7e7;
+    }
+
+    &:hover::-webkit-scrollbar-thumb {
+        background-color: #5A5A65;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: transparent;
+        border-radius: 3px;
+    }
+
 }
 
 </style>
