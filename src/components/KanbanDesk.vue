@@ -50,6 +50,7 @@
                 :types="types"
                 :priority="priority"
                 :workers="workers"
+                :cards="cards"
                 @closeCreate="closeCreate"
                 @addCard="addCard"
             />

@@ -12,6 +12,7 @@
             <input type="text" 
                 id="cardNumber"
                 v-model="createdTask.cardNumber">
+            <span class="validation-error">{{ validationErrors.number }}</span>
         </div>
 
         <div class="kanban-create__input-wrap">
@@ -19,6 +20,7 @@
             <input type="text" 
                 id="cardTitle"
                 v-model="createdTask.cardTitle">
+            <span class="validation-error">{{ validationErrors.title }}</span>
         </div>
 
         <div class="kanban-create__input-wrap">
@@ -47,6 +49,7 @@
                     </option>
                 </select>
             </div>
+            <span class="validation-error">{{ validationErrors.type }}</span>
         </div>
 
         <div class="kanban-create__input-wrap">
@@ -66,6 +69,7 @@
                     </option>
                 </select>
             </div>
+            <span class="validation-error">{{ validationErrors.priority }}</span>
         </div>
 
         <div class="kanban-create__input-wrap">
@@ -84,6 +88,7 @@
                     </option>
                 </select>
             </div>
+            <span class="validation-error">{{ validationErrors.author }}</span>
         </div>
 
         <div class="kanban-create__input-wrap">
@@ -102,6 +107,7 @@
                     </option>
                 </select>
             </div>
+            <span class="validation-error">{{ validationErrors.worker }}</span>
         </div>
 
         <button class="kanban-create__submit"
@@ -115,29 +121,84 @@
 <script>
 import {
     ref,
+    watch
 } from 'vue'
 
 export default {
-    props: ['workers', 'priority', 'types'],
+    props: ['workers', 'priority', 'types', 'cards'],
     emits: ['closeCreate', 'addCard'],
     setup (props, context) {
         const decriptionField = ref(null)
         const createdTask = ref({
+            'cardNumber': "",
+            'cardTitle': "",
+            'description': "",
             'type': null,
             'priority': null,
             'worker': null,
             'author': null,
             'status': 0,
-            'updateDate': ""
+            'updateDate': "",
+            'createDate': ""
         })
+
+        const validationErrors = ref({
+            'title': "Введите название!",
+            'number': "",
+            'type': "",
+            'priority': "",
+            'author': "",
+            'worker': ""
+        })
+
+        const cardsList = ref(props.cards)
         
         function closeCreate() {
             context.emit('closeCreate')
         }
 
+        watch(createdTask.value, (newValues) => {
+            if (!newValues.type)
+                validationErrors.value.type = "Выберите тип!"
+            else
+                validationErrors.value.type = ""
+            
+            if (!newValues.priority)
+                validationErrors.value.priority = "Выберите приоритет!"
+            else
+                validationErrors.value.priority = ""
+
+            if (!newValues.author)
+                validationErrors.value.author = "Выберите автора!"
+            else
+                validationErrors.value.author = ""
+            
+            if (!newValues.worker)
+                validationErrors.value.worker = "Выберите исполнителя!"
+            else
+                validationErrors.value.worker = ""
+            
+            if (!newValues.cardTitle)
+                validationErrors.value.title = "Введите название!"
+            else
+                validationErrors.value.title = ""
+            
+            let pattern = /^[A-Za-z]*[-]\d+$/
+            if (!pattern.test(newValues.cardNumber))
+                validationErrors.value.number = "Номер должен иметь формат: символы латинского алфавита - цифры"
+            else if (cardsList.value.find(card => card.cardNumber == newValues.cardNumber.toUpperCase()))
+                validationErrors.value.number = "Номер должен быть уникальным"
+            else
+                validationErrors.value.number = ""
+
+        })
+
         function createCard() {
-            // TODO: ВАЛИДАЦИЯ
             createdTask.value.createDate = new Date().toLocaleDateString()
+            for (let key in validationErrors.value) {
+                if (validationErrors.value[key]) return;
+            }
+            console.log(createdTask.value);
             context.emit('addCard', createdTask)
         }
 
@@ -154,7 +215,8 @@ export default {
             decriptionField,
             changeHeightTextarea,
             createdTask,
-            createCard
+            createCard,
+            validationErrors
         }
     }
 }
@@ -170,10 +232,10 @@ export default {
     top: 0;
     width: 100%;
     height: 100%;
-    padding: 40px;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    gap: 20px;
+    gap: 10px;
     overflow-y: scroll;
     align-items: center;
 
@@ -224,6 +286,12 @@ export default {
 
         textarea:focus {
             outline: none;
+        }
+
+        .validation-error {
+            font-size: 14px;
+            color: red;
+            height: 1rem;
         }
 
         .select-wrap {

@@ -63,7 +63,6 @@ export default {
         }
         
         function stopDrag(evt, item) {
-            console.log(typeof(item.cardNumber));
             let draggedItem = document.querySelector(`#${item.cardNumber}`)
             if (draggedItem)
                 setTimeout(() => {
