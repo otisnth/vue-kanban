@@ -9,6 +9,16 @@
             <p class="kanban-desk-header__description">
                 Lorem ipsum dolor sit, amet consectetur adipisicing elit. Cum a voluptates provident ut odit recusandae non sequi temporibus veniam doloremque cupiditate ratione, fugiat possimus culpa ipsam excepturi repellat reprehenderit iure.
             </p>
+
+            <div class="kanban-desk-header__action-group">
+                <button class="create-card"
+                @click="openCreate">
+                    Добавить карточку
+                </button>
+                <div class="delete-area">
+                    Перетащите карточку для удаления
+                </div>
+            </div>
         </div>
 
         <div class="kanban-cards-wrap">
@@ -32,6 +42,10 @@
                 :workers="workers"
             />
             
+            <KanbanCreateCard
+                v-if="showCreate"
+                @closeCreate="closeCreate"
+            />
         </div>
 
     </div>
@@ -44,12 +58,14 @@ import {
 
 import KanbanStatus from './KanbanStatus.vue'
 import KanbanCardDetail from './KanbanCardDetail.vue'
+import KanbanCreateCard from './KanbanCreateCard.vue'
 
 export default {
     props: ['kanbanCards', 'kanbanWorkers', 'kanbanStatuses'],
     emits: [],
     setup (props) {
         const showDetail = ref(false)
+        const showCreate = ref(false)
         const detailCard = ref({})
 
         function openDetail(item) {
@@ -60,6 +76,15 @@ export default {
         function closeDetail() {
             showDetail.value = false
         }
+
+        function openCreate() {
+            showDetail.value = false
+            showCreate.value = true
+        }
+
+        function closeCreate() {
+            showCreate.value = false
+        }
         
         return {
             showDetail,
@@ -69,11 +94,15 @@ export default {
             workers: props.kanbanWorkers,
             cards: props.kanbanCards,
             detailCard,
+            closeCreate,
+            openCreate,
+            showCreate
         }
     },
     components: {
         KanbanStatus,
-        KanbanCardDetail
+        KanbanCardDetail,
+        KanbanCreateCard
     }
 }
 </script>
@@ -106,6 +135,26 @@ export default {
         font-style: normal;
         font-weight: 400;
         color: #5A5A65; 
+    }
+
+    .kanban-desk-header__action-group{
+        display: flex;
+        gap: 15px;
+
+        .create-card {
+            padding: 8px;
+            font: inherit;
+            background-color: #44944A;
+            border-color: transparent;
+            border-radius: 4px;
+            color: #fff;
+        }
+
+        .delete-area {
+            border: 2px solid #AF2B1E;
+            border-radius: 4px;
+            padding: 8px;
+        }
     }
 
 }
