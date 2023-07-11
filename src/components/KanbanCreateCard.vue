@@ -198,7 +198,6 @@ export default {
             for (let key in validationErrors.value) {
                 if (validationErrors.value[key]) return;
             }
-            console.log(createdTask.value);
             context.emit('addCard', createdTask)
         }
 

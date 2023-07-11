@@ -15,10 +15,12 @@
 
 import {
     ref,
+    watch,
+    computed
 } from 'vue'
 
 import KanbanDesk from './components/KanbanDesk.vue';
-import kanbanCardsJson from './assets/kanbanCards.json'
+// import kanbanCardsJson from './assets/kanbanCards.json'
 import kanbanWorkersJson from './assets/kanbanWorkers.json'
 import kanbanStatusesJson from './assets/kanbanStatuses.json'
 import kanbanTypesJson from './assets/kanbanTypes.json'
@@ -26,11 +28,20 @@ import kanbanPriorityJson from './assets/kanbanPriority.json'
 
 export default {
     setup () {
-        const kanbanCards = ref(kanbanCardsJson)
+        // const kanbanCards = ref(kanbanCardsJson)
+        const kanbanCards = ref(localStorage.getItem('cards') ? JSON.parse(localStorage.getItem('cards')) : [])
         const kanbanWorkers = ref(kanbanWorkersJson)
         const kanbanStatuses = ref(kanbanStatusesJson)
         const kanbanTypes = ref(kanbanTypesJson)
         const kanbanPriority = ref(kanbanPriorityJson)
+
+        const cards = computed(() => {
+            return kanbanCards.value
+        })
+
+        watch(cards.value, (newValue) => {
+            localStorage.setItem('cards', JSON.stringify(newValue))
+        })
 
         return {
             kanbanCards,
