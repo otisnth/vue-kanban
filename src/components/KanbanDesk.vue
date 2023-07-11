@@ -15,7 +15,10 @@
                 @click="openCreate">
                     Добавить карточку
                 </button>
-                <div class="delete-area">
+                <div class="delete-area"
+                    @drop="deleteCard($event)"
+                    @dragenter.prevent
+                    @dragover.prevent>
                     Перетащите карточку для удаления
                 </div>
             </div>
@@ -48,6 +51,7 @@
                 :priority="priority"
                 :workers="workers"
                 @closeCreate="closeCreate"
+                @addCard="addCard"
             />
         </div>
 
@@ -57,6 +61,7 @@
 <script>
 import {
     ref,
+    computed
 } from 'vue'
 
 import KanbanStatus from './KanbanStatus.vue'
@@ -70,6 +75,10 @@ export default {
         const showDetail = ref(false)
         const showCreate = ref(false)
         const detailCard = ref({})
+
+        const cards = computed(() => {
+            return props.kanbanCards
+        })
 
         function openDetail(item) {
             detailCard.value = item
@@ -88,20 +97,32 @@ export default {
         function closeCreate() {
             showCreate.value = false
         }
+
+        function addCard(newCard) {
+            cards.value.push(newCard.value)
+            showCreate.value = false
+        }
         
+        function deleteCard(evt) {
+            const itemId = evt.dataTransfer.getData('itemId')
+            cards.value.splice(0, cards.value.length, ...cards.value.filter(n => n.cardNumber != itemId))
+        }
+
         return {
             showDetail,
             openDetail,
             closeDetail,
             statuses: props.kanbanStatuses,
             workers: props.kanbanWorkers,
-            cards: props.kanbanCards,
+            cards,
             types: props.kanbanTypes,
             priority: props.kanbanPriority,
             detailCard,
             closeCreate,
             openCreate,
-            showCreate
+            showCreate,
+            addCard,
+            deleteCard
         }
     },
     components: {

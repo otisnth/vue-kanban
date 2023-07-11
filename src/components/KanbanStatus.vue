@@ -34,7 +34,7 @@
 
 <script>
 import {
-    ref
+    computed
 } from 'vue'
 import KanbanCard from './KanbanCard.vue';
 export default {
@@ -47,7 +47,9 @@ export default {
             context.emit('openDetail', item)
         }
 
-        const cardItems = ref(props.cards)
+        const cardItems = computed(() => {
+            return props.cards
+        })
 
         function startDrag(evt, item) {
             let draggedItem = document.querySelector(`#${item.cardNumber}`)
