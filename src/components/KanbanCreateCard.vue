@@ -11,8 +11,8 @@
             <label for="cardNumber">Номер:</label>
             <input type="text" 
                 id="cardNumber"
-                v-model="createdTask.cardNumber">
-            <span class="validation-error">{{ validationErrors.number }}</span>
+                v-model="createdTask.cardNumber"
+                disabled>
         </div>
 
         <div class="kanban-create__input-wrap">
@@ -121,7 +121,8 @@
 <script>
 import {
     ref,
-    watch
+    watch,
+    onMounted
 } from 'vue'
 
 export default {
@@ -144,7 +145,6 @@ export default {
 
         const validationErrors = ref({
             'title': "Введите название!",
-            'number': "",
             'type': "",
             'priority': "",
             'author': "",
@@ -182,18 +182,38 @@ export default {
                 validationErrors.value.title = "Введите название!"
             else
                 validationErrors.value.title = ""
-            
-            let pattern = /^[A-Za-z]*[-]\d+$/
-            if (!pattern.test(newValues.cardNumber))
-                validationErrors.value.number = "Номер должен иметь формат: символы латинского алфавита - цифры"
-            else if (cardsList.value.find(card => card.cardNumber == newValues.cardNumber.toUpperCase()))
-                validationErrors.value.number = "Номер должен быть уникальным"
-            else
-                validationErrors.value.number = ""
 
         })
 
+        function generateRandomNumber() {
+            const letters = 'abcdefghijklmnopqrstuvwxyz'
+
+            let randomString = ''
+
+            for (let i = 0; i < 2; i++) {
+                const randomIndex = Math.floor(Math.random() * letters.length)
+                randomString += letters.charAt(randomIndex)
+            }
+
+            randomString += "-"
+
+            for (let i = 0; i < 4; i++) {
+                randomString += Math.floor(Math.random() * 10)
+            }
+
+            return randomString.toUpperCase()
+        }
+
+        onMounted(() => {
+            do {
+                createdTask.value.cardNumber = generateRandomNumber()
+                if (cardsList.value.find(card => card.cardNumber == createdTask.value.cardNumber.toUpperCase()))
+                    createdTask.value.cardNumber = ""
+            } while (!createdTask.value.cardNumber)
+        })
+
         function createCard() {
+
             createdTask.value.createDate = new Date().toLocaleDateString()
             for (let key in validationErrors.value) {
                 if (validationErrors.value[key]) return;
@@ -271,6 +291,11 @@ export default {
 
         input:focus {
             outline: none;
+        }
+
+        input:disabled {
+            color: #000;
+            border-bottom: 1px solid transparent;
         }
 
         textarea {
