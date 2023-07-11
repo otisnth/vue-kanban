@@ -167,7 +167,7 @@
 import {
     ref,
     computed,
-    // watch,
+    watch,
     onRenderTracked,
     onUpdated,
     onMounted
@@ -207,33 +207,32 @@ export default {
             return props.item
         })
 
-        // watch(
-        //     () => detailFields,
-        //     (newDetailFields, oldDetailFields) => {
-        //         console.log(newDetailFields);
-        //         console.log(oldDetailFields);
-        //         const keys = Object.keys(newDetailFields).filter(
-        //             (key) => key !== 'updateDate'
-        //         );
+        watch(
+            () => [detailFields.value.worker, detailFields.value],
+            (newValues, oldValues) => {
+                if (newValues[1].cardNumber == oldValues[1].cardNumber) {
+                    detailFields.value.updateDate = new Date().toLocaleDateString()
+                }
+            }
+        )
 
-        //         const hasChanges = keys.some(
-        //             (key) => newDetailFields[key] !== detailFields.value[key]
-        //         );
+        watch(
+            () => [detailFields.value.cardTitle, detailFields.value],
+            (newValues, oldValues) => {
+                if (newValues[1].cardNumber == oldValues[1].cardNumber) {
+                    detailFields.value.updateDate = new Date().toLocaleDateString()
+                }
+            }
+        )
 
-        //         if (hasChanges) {
-        //             detailFields.value.updateDate = new Date().toLocaleString();
-        //         }
-        //     }
-        // )
-
-        // watch(detailFields.value, (newDetailFields, oldDetailFields) => {
-        //     console.log(newDetailFields);
-        //     console.log(oldDetailFields);
-
-        //     detailFields.value.updateDate = new Date().toLocaleDateString();
-        //     console.log(new Date().toLocaleDateString());
-
-        // })
+        watch(
+            () => [detailFields.value.description, detailFields.value],
+            (newValues, oldValues) => {
+                if (newValues[1].cardNumber == oldValues[1].cardNumber) {
+                    detailFields.value.updateDate = new Date().toLocaleDateString()
+                }
+            }
+        )
 
         return {
             changeTitle,
