@@ -1,0 +1,17 @@
+[
+    {
+        "priorityTitle": "Низкий приоритет",
+        "priorityIcon": "prio-low.svg",
+        "priorityId": 0
+    },
+    {
+        "priorityTitle": "Средний приоритет",
+        "priorityIcon": "prio-middle.svg",
+        "priorityId": 1
+    },
+    {
+        "priorityTitle": "Высокий приоритет",
+        "priorityIcon": "prio-high.svg",
+        "priorityId": 2
+    }
+]

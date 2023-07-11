@@ -44,6 +44,9 @@
             
             <KanbanCreateCard
                 v-if="showCreate"
+                :types="types"
+                :priority="priority"
+                :workers="workers"
                 @closeCreate="closeCreate"
             />
         </div>
@@ -61,7 +64,7 @@ import KanbanCardDetail from './KanbanCardDetail.vue'
 import KanbanCreateCard from './KanbanCreateCard.vue'
 
 export default {
-    props: ['kanbanCards', 'kanbanWorkers', 'kanbanStatuses'],
+    props: ['kanbanCards', 'kanbanWorkers', 'kanbanStatuses', 'kanbanTypes', 'kanbanPriority'],
     emits: [],
     setup (props) {
         const showDetail = ref(false)
@@ -93,6 +96,8 @@ export default {
             statuses: props.kanbanStatuses,
             workers: props.kanbanWorkers,
             cards: props.kanbanCards,
+            types: props.kanbanTypes,
+            priority: props.kanbanPriority,
             detailCard,
             closeCreate,
             openCreate,

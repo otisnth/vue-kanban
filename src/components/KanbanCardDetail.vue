@@ -38,12 +38,12 @@
                 <div class="detail-info__item">
 
                     <img 
-                        :src='require(`../assets/images/${detailFields.typeIcon}`)'
-                        :alt="detailFields.type" 
+                        :src='require(`../assets/images/${detailFields.type.typeIcon}`)'
+                        :alt="detailFields.type.typeTitle" 
                         class="detail-info__icon"
                     >
                     <p class="detail-info__text">
-                        {{ detailFields.type }}
+                        {{ detailFields.type.typeTitle }}
                     </p>
 
                 </div>
@@ -59,13 +59,13 @@
                 <div class="detail-info__item">
 
                     <img 
-                        :src='require(`../assets/images/${detailFields.priorityIcon}`)'
-                        :alt="detailFields.priority" 
+                        :src='require(`../assets/images/${detailFields.priority.priorityIcon}`)'
+                        :alt="detailFields.priority.priorityTitle" 
                         class="detail-info__icon"
                     >
 
                     <p class="detail-info__text">
-                        {{ detailFields.priority }}
+                        {{ detailFields.priority.priorityTitle }}
                     </p>
 
                 </div>
@@ -95,13 +95,13 @@
                 <div class="detail-user__item">
 
                     <img 
-                        :src='require(`../assets/images/${detailFields.authorAvatar}`)' 
+                        :src='require(`../assets/images/${detailFields.author.workerAvatar}`)' 
                         alt="Аватар" 
                         class="detail-user__avatar"
                     >
 
                     <p class="detail-user__author">
-                        {{ detailFields.authorName }}
+                        {{ detailFields.author.workerName }}
                     </p>
 
                 </div>

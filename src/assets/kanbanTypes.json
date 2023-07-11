@@ -1,0 +1,12 @@
+[
+    {
+        "typeTitle": "Дефект",
+        "typeIcon": "bug.svg",
+        "typeId": 0
+    },
+    {
+        "typeTitle": "Задача",
+        "typeIcon": "task.svg",
+        "typeId": 1
+    }
+]

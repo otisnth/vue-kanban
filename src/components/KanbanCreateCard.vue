@@ -8,7 +8,62 @@
         <h4 class="kanban-create__title">Создание задачи</h4>
          
         <div class="kanban-create__input-wrap">
+            <label for="cardNumber">Номер:</label>
+            <input type="text" id="cardNumber">
+        </div>
 
+        <div class="kanban-create__input-wrap">
+            <label for="cardTitle">Название:</label>
+            <input type="text" id="cardTitle">
+        </div>
+
+        <div class="kanban-create__input-wrap">
+            <label for="description">Название:</label>
+            <textarea id="description" cols="30" rows="10"></textarea>
+        </div>
+
+        <div class="kanban-create__input-wrap">
+            <label for="type">Тип:</label>
+            <select id="type">
+                <option v-for="item in typesList"
+                    :key="item.typeId"
+                    :value="item">
+                        {{ item.typeTitle }}
+                </option>
+            </select>
+        </div>
+
+        <div class="kanban-create__input-wrap">
+            <label for="priority">Приоритет:</label>
+            <select id="priority">
+                <option v-for="item in priorityList"
+                    :key="item.priorityId"
+                    :value="item">
+                        {{ item.priorityTitle }}
+                </option>
+            </select>
+        </div>
+
+        <div class="kanban-create__input-wrap">
+            <label for="author">Автор:</label>
+            <select id="author">
+                <option v-for="item in workersList"
+                    :key="item.workerId"
+                    :value="item">
+                        {{ item.workerName }}
+                </option>
+            </select>
+        </div>
+
+        <div class="kanban-create__input-wrap">
+            <label for="worker">Исполнитель:</label>
+            <select id="worker">
+                <option v-for="item in workersList"
+                    :key="item.workerId"
+                    :value="item">
+                        {{ item.workerName }}
+                </option>
+            </select>
         </div>
 
     </div>
@@ -16,6 +71,7 @@
 
 <script>
 export default {
+    props: ['workers', 'priority', 'types'],
     emits: ['closeCreate'],
     setup (props, context) {
         
@@ -25,6 +81,9 @@ export default {
 
         return {
             closeCreate,
+            workersList: props.workers,
+            priorityList: props.priority,
+            typesList: props.types
         }
     }
 }
@@ -44,6 +103,7 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    overflow-y: scroll;
 
     .kanban-create__header-line {
         display: flex;

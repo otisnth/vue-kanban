@@ -12,15 +12,15 @@
         <div class="kanban-card__property">
 
             <img class="kanban-card__icon" 
-            :src='require(`../assets/images/${cardFields.typeIcon}`)'
-            :alt="cardFields.type" 
-            :title="cardFields.type"
+            :src='require(`../assets/images/${cardFields.type.typeIcon}`)'
+            :alt="cardFields.type.typeTitle" 
+            :title="cardFields.type.typeTitle"
             >
 
             <img class="kanban-card__icon" 
-            :src='require(`../assets/images/${cardFields.priorityIcon}`)'
-            :alt="cardFields.priority" 
-            :title="cardFields.priority"
+            :src='require(`../assets/images/${cardFields.priority.priorityIcon}`)'
+            :alt="cardFields.priority.priorityTitle" 
+            :title="cardFields.priority.priorityTitle"
             >
 
         </div>

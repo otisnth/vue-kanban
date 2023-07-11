@@ -3,17 +3,26 @@
         "cardNumber": "ER-777",
         "status": 0,
         "cardTitle": "Super task",
-        "type": "Дефект",
-        "typeIcon": "bug.svg",
-        "priority": "Низкий приоритет",
-        "priorityIcon": "prio-low.svg",
+        "type": {
+            "typeTitle": "Дефект",
+            "typeIcon": "bug.svg",
+            "typeId": 0
+        },
+        "priority": {
+            "priorityTitle": "Низкий приоритет",
+            "priorityIcon": "prio-low.svg",
+            "priorityId": 0
+        },
         "worker": {
             "workerName": "Иван Иванов",
             "workerAvatar": "avatar1.png",
             "workerId": 0
         },
-        "authorName": "Петр Петров",
-        "authorAvatar": "avatar2.png",
+        "author": {
+            "workerName": "Петр Петров",
+            "workerAvatar": "avatar2.png",
+            "workerId": 1
+        },
         "description": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Saepe ipsa eveniet nulla ratione pariatur libero, nobis quos doloribus tenetur placeat laudantium temporibus est voluptate illum vitae! Natus quam libero facilis!",
         "createDate": "21.01.2020",
         "updateDate": "27.01.2020"
@@ -22,17 +31,26 @@
         "cardNumber": "EF-767",
         "status": 0,
         "cardTitle": "Not Super task",
-        "type": "Дефект",
-        "typeIcon": "bug.svg",
-        "priority": "Средний приоритет",
-        "priorityIcon": "prio-middle.svg",
+        "type": {
+            "typeTitle": "Дефект",
+            "typeIcon": "bug.svg",
+            "typeId": 0
+        },
+        "priority": {
+            "priorityTitle": "Средний приоритет",
+            "priorityIcon": "prio-middle.svg",
+            "priorityId": 1
+        },
         "worker": {
             "workerName": "Петр Петров",
             "workerAvatar": "avatar2.png",
             "workerId": 1
         },
-        "authorName": "Руслан Васильев",
-        "authorAvatar": "avatar3.png",
+        "author": {
+            "workerName": "Руслан Васильев",
+            "workerAvatar": "avatar3.png",
+            "workerId": 2
+        },
         "description": "",
         "createDate": "27.01.2020",
         "updateDate": "28.01.2020"
@@ -41,17 +59,26 @@
         "cardNumber": "ER-347",
         "status": 0,
         "cardTitle": "Super task",
-        "type": "Задача",
-        "typeIcon": "task.svg",
-        "priority": "Высокий приоритет",
-        "priorityIcon": "prio-high.svg",
+        "type": {
+            "typeTitle": "Задача",
+            "typeIcon": "task.svg",
+            "typeId": 1
+        },
+        "priority": {
+            "priorityTitle": "Высокий приоритет",
+            "priorityIcon": "prio-high.svg",
+            "priorityId": 2
+        },
         "worker": {
             "workerName": "Руслан Васильев",
             "workerAvatar": "avatar3.png",
             "workerId": 2
         },
-        "authorName": "Сергей Пушкин",
-        "authorAvatar": "avatar4.png",
+        "author": {
+            "workerName": "Сергей Пушкин",
+            "workerAvatar": "avatar4.png",
+            "workerId": 3
+        },
         "description": "",
         "createDate": "27.02.2021",
         "updateDate": "20.03.2021"
@@ -60,17 +87,26 @@
         "cardNumber": "AS-127",
         "status": 1,
         "cardTitle": "Super task",
-        "type": "Дефект",
-        "typeIcon": "bug.svg",
-        "priority": "Высокий приоритет",
-        "priorityIcon": "prio-high.svg",
+        "type": {
+            "typeTitle": "Дефект",
+            "typeIcon": "bug.svg",
+            "typeId": 0
+        },
+        "priority": {
+            "priorityTitle": "Высокий приоритет",
+            "priorityIcon": "prio-high.svg",
+            "priorityId": 2
+        },
         "worker": {
             "workerName": "Сергей Пушкин",
             "workerAvatar": "avatar4.png",
             "workerId": 3
         },
-        "authorName": "Савелий Маяковский",
-        "authorAvatar": "avatar5.png",
+        "author": {
+            "workerName": "Савелий Маяковский",
+            "workerAvatar": "avatar5.png",
+            "workerId": 4
+        },
         "description": "",
         "createDate": "21.01.2020",
         "updateDate": ""
@@ -79,17 +115,26 @@
         "cardNumber": "QU-317",
         "status": 2,
         "cardTitle": "Super task",
-        "type": "Задача",
-        "typeIcon": "task.svg",
-        "priority": "Средний приоритет",
-        "priorityIcon": "prio-middle.svg",
+        "type": {
+            "typeTitle": "Задача",
+            "typeIcon": "task.svg",
+            "typeId": 1
+        },
+        "priority": {
+            "priorityTitle": "Средний приоритет",
+            "priorityIcon": "prio-middle.svg",
+            "priorityId": 1
+        },
         "worker": {
             "workerName": "Савелий Маяковский",
             "workerAvatar": "avatar5.png",
             "workerId": 4
         },
-        "authorName": "Александр Малышев",
-        "authorAvatar": "avatar6.png",
+        "author": {
+            "workerName": "Александр Малышев",
+            "workerAvatar": "avatar6.png",
+            "workerId": 5
+        },
         "description": "",
         "createDate": "10.06.2021",
         "updateDate": "30.07.2021"
@@ -98,17 +143,26 @@
         "cardNumber": "EW-7",
         "status": 2,
         "cardTitle": "Super task",
-        "type": "Задача",
-        "typeIcon": "task.svg",
-        "priority": "Средний приоритет",
-        "priorityIcon": "prio-middle.svg",
+        "type": {
+            "typeTitle": "Задача",
+            "typeIcon": "task.svg",
+            "typeId": 1
+        },
+        "priority": {
+            "priorityTitle": "Средний приоритет",
+            "priorityIcon": "prio-middle.svg",
+            "priorityId": 1
+        },
         "worker": {
             "workerName": "Александр Малышев",
             "workerAvatar": "avatar6.png",
             "workerId": 5
         },
-        "authorName": "Иван Иванов",
-        "authorAvatar": "avatar1.png",
+        "author": {
+            "workerName": "Иван Иванов",
+            "workerAvatar": "avatar1.png",
+            "workerId": 0
+        },
         "description": "",
         "createDate": "09.09.2021",
         "updateDate": ""
@@ -117,17 +171,26 @@
         "cardNumber": "AS-255",
         "status": 3,
         "cardTitle": "Super task",
-        "type": "Задача",
-        "typeIcon": "task.svg",
-        "priority": "Низкий приоритет",
-        "priorityIcon": "prio-low.svg",
+        "type": {
+            "typeTitle": "Задача",
+            "typeIcon": "task.svg",
+            "typeId": 1
+        },
+        "priority": {
+            "priorityTitle": "Низкий приоритет",
+            "priorityIcon": "prio-low.svg",
+            "priorityId": 0
+        },
         "worker": {
             "workerName": "Иван Иванов",
             "workerAvatar": "avatar1.png",
             "workerId": 0
         },
-        "authorName": "Петр Петров",
-        "authorAvatar": "avatar2.png",
+        "author": {
+            "workerName": "Петр Петров",
+            "workerAvatar": "avatar2.png",
+            "workerId": 1
+        },
         "description": "",
         "createDate": "10.09.2021",
         "updateDate": " "
@@ -136,17 +199,26 @@
         "cardNumber": "F-121",
         "status": 3,
         "cardTitle": "Super task",
-        "type": "Дефект",
-        "typeIcon": "bug.svg",
-        "priority": "Высокий приоритет",
-        "priorityIcon": "prio-high.svg",
+        "type":     {
+            "typeTitle": "Дефект",
+            "typeIcon": "bug.svg",
+            "typeId": 0
+        },
+        "priority": {
+            "priorityTitle": "Высокий приоритет",
+            "priorityIcon": "prio-high.svg",
+            "priorityId": 2
+        },
         "worker": {
             "workerName": "Петр Петров",
             "workerAvatar": "avatar2.png",
             "workerId": 1
         },
-        "authorName": "Руслан Васильев",
-        "authorAvatar": "avatar3.png",
+        "author": {
+            "workerName": "Руслан Васильев",
+            "workerAvatar": "avatar3.png",
+            "workerId": 2
+        },
         "description": "",
         "createDate": "10.05.2021",
         "updateDate": "05.01.2023"
@@ -155,17 +227,26 @@
         "cardNumber": "ER-313",
         "status": 3,
         "cardTitle": "Super task",
-        "type": "Задача",
-        "typeIcon": "task.svg",
-        "priority": "Высокий приоритет",
-        "priorityIcon": "prio-high.svg",
+        "type": {
+            "typeTitle": "Задача",
+            "typeIcon": "task.svg",
+            "typeId": 1
+        },
+        "priority": {
+            "priorityTitle": "Высокий приоритет",
+            "priorityIcon": "prio-high.svg",
+            "priorityId": 2
+        },
         "worker": {
             "workerName": "Руслан Васильев",
             "workerAvatar": "avatar3.png",
             "workerId": 2
         },
-        "authorName": "Сергей Пушкин",
-        "authorAvatar": "avatar4.png",
+        "author": {
+            "workerName": "Сергей Пушкин",
+            "workerAvatar": "avatar4.png",
+            "workerId": 3
+        },
         "description": "",
         "createDate": "09.06.2023",
         "updateDate": "10.06.2023"
@@ -174,17 +255,26 @@
         "cardNumber": "FR-13",
         "status": 3,
         "cardTitle": "Super task",
-        "type": "Дефект",
-        "typeIcon": "bug.svg",
-        "priority": "Средний приоритет",
-        "priorityIcon": "prio-middle.svg",
+        "type": {
+            "typeTitle": "Дефект",
+            "typeIcon": "bug.svg",
+            "typeId": 0
+        },
+        "priority": {
+            "priorityTitle": "Средний приоритет",
+            "priorityIcon": "prio-middle.svg",
+            "priorityId": 1
+        },
         "worker": {
             "workerName": "Сергей Пушкин",
             "workerAvatar": "avatar4.png",
             "workerId": 3
         },
-        "authorName": "Савелий Маяковский",
-        "authorAvatar": "avatar5.png",
+        "author": {
+            "workerName": "Савелий Маяковский",
+            "workerAvatar": "avatar5.png",
+            "workerId": 4
+        },
         "description": "",
         "createDate": "16.03.2023",
         "updateDate": "17.03.2023"

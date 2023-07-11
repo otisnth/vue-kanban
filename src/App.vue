@@ -4,6 +4,8 @@
             :kanbanCards="kanbanCards"
             :kanbanWorkers="kanbanWorkers"
             :kanbanStatuses="kanbanStatuses"
+            :kanbanTypes="kanbanTypes"
+            :kanbanPriority="kanbanPriority"
 
         />
     </div>
@@ -19,17 +21,23 @@ import KanbanDesk from './components/KanbanDesk.vue';
 import kanbanCardsJson from './assets/kanbanCards.json'
 import kanbanWorkersJson from './assets/kanbanWorkers.json'
 import kanbanStatusesJson from './assets/kanbanStatuses.json'
+import kanbanTypesJson from './assets/kanbanTypes.json'
+import kanbanPriorityJson from './assets/kanbanPriority.json'
 
 export default {
     setup () {
         const kanbanCards = ref(kanbanCardsJson)
         const kanbanWorkers = ref(kanbanWorkersJson)
         const kanbanStatuses = ref(kanbanStatusesJson)
+        const kanbanTypes = ref(kanbanTypesJson)
+        const kanbanPriority = ref(kanbanPriorityJson)
 
         return {
             kanbanCards,
             kanbanWorkers,
             kanbanStatuses,
+            kanbanPriority,
+            kanbanTypes
         }
     },
     components: {
