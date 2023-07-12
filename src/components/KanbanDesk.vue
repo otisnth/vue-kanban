@@ -17,8 +17,9 @@
                 </button>
                 <div class="delete-area"
                     @drop="deleteCard($event)"
-                    @dragenter.prevent
-                    @dragover.prevent>
+                    @dragenter.prevent="enterDelete($event)"
+                    @dragover.prevent
+                    @dragleave="leaveDelete($event)">
                     Перетащите карточку для удаления
                 </div>
             </div>
@@ -107,6 +108,15 @@ export default {
         function deleteCard(evt) {
             const itemId = evt.dataTransfer.getData('itemId')
             cards.value.splice(0, cards.value.length, ...cards.value.filter(n => n.cardNumber != itemId))
+            evt.target.classList.remove("delete-area_select")
+        }
+
+        function enterDelete(evt) {
+            evt.target.classList.add("delete-area_select")
+        }
+
+        function leaveDelete(evt) {
+            evt.target.classList.remove("delete-area_select")
         }
 
         return {
@@ -123,7 +133,9 @@ export default {
             openCreate,
             showCreate,
             addCard,
-            deleteCard
+            deleteCard,
+            enterDelete,
+            leaveDelete
         }
     },
     components: {
@@ -178,9 +190,14 @@ export default {
         }
 
         .delete-area {
-            border: 2px solid #AF2B1E;
+            border: 2px solid #F80000;
             border-radius: 4px;
             padding: 8px;
+
+            &_select {
+                background-color: #AB343A;
+                color: #fff;
+            }
         }
     }
 

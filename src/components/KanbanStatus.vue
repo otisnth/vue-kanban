@@ -1,8 +1,9 @@
 <template>
     <div class="kanban-status"
         @drop="onDrop($event, statusItem.statusId)"
-        @dragenter.prevent
+        @dragenter.prevent="enterRow($event)"
         @dragover.prevent
+        @dragleave="leaveRow($event)"
         >
 
         <div class="kanban-status-header" :style="{'background-color': statusItem.statusColor}">
@@ -80,6 +81,15 @@ export default {
                     x.status = statusId
                 return x
             })
+            evt.target.classList.remove("kanban-status_select")
+        }
+
+        function enterRow(evt) {
+            evt.target.classList.add("kanban-status_select")
+        }
+
+        function leaveRow(evt) {
+            evt.target.classList.remove("kanban-status_select")
         }
 
         return {
@@ -89,6 +99,8 @@ export default {
             startDrag,
             stopDrag,
             onDrop,
+            enterRow,
+            leaveRow
         }
     },
     components: {
@@ -104,6 +116,12 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 12px;
+    border: 2px solid transparent;
+    border-radius: 8px;
+
+    &_select {
+        background-color: #e7e7e7;
+    }
 }
 
 .kanban-status-header {
