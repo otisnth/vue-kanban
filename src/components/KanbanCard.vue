@@ -68,17 +68,17 @@ export default {
     font-size: 16px;
     cursor: pointer;
 
-    .kanban-card__number {
+    &__number {
         font-weight: 600;
         text-transform: uppercase;
         color: #5A5A65;
     }
 
-    .kanban-card__title {
+    &__title {
         font-weight: 600;
     }
 
-    .kanban-card__property {
+    &__property {
         display: flex;
         gap: 8px;
         padding: 4px 0;
@@ -86,23 +86,23 @@ export default {
         border-bottom: 1px solid #DDD;
     }
 
-    .kanban-card__icon {
+    &__icon {
         width: 20px;
     }
 
-    .kanban-card__worker {
+    &__worker {
         display: grid;
         grid-template-columns: min-content auto;
         gap: 8px;
         align-items: center;
     }
 
-    .kanban-card__avatar {
+    &__avatar {
         width: 36px;
         border-radius: 50%;
     }
 
-    .kanban-card__worker-name {
+    &__worker-name {
         font-size: 14px;
         color: #5A5A65;
     }

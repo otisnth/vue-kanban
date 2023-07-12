@@ -24,7 +24,7 @@
                 :cardItem="item"
                 @click="openDetail(item)"
                 draggable="true"
-                @dragstart="startDrag($event, item)"
+                @dragstart.capture="startDrag($event, item)"
                 @dragend="stopDrag($event, item)"
             />
 
@@ -56,6 +56,9 @@ export default {
             setTimeout(() => {
                 draggedItem.style.display = 'none'
             })
+            console.log(draggedItem);
+
+            console.log(evt);
 
             evt.dataTransfer.dropEffect = 'move'
             evt.dataTransfer.effectAllowed = 'move'
@@ -111,10 +114,6 @@ export default {
     gap: 4px;
     justify-content: space-between;
     padding: 4px 12px;
-
-    .kanban-status-header__title {
-        
-    }
 
     input {
         display: none;

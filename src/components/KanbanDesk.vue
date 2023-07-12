@@ -150,21 +150,21 @@ export default {
     gap: 8px;
     max-width: 50%;
 
-    .kanban-desk-header__title {
+    &__title {
         font-size: 32px;
         font-style: normal;
         font-weight: 700; 
         color: #212121; 
     }
 
-    .kanban-desk-header__description {
+    &__description {
         font-size: 14px;
         font-style: normal;
         font-weight: 400;
         color: #5A5A65; 
     }
 
-    .kanban-desk-header__action-group{
+    &__action-group{
         display: flex;
         gap: 15px;
 

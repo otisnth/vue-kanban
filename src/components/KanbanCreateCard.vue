@@ -258,7 +258,7 @@ export default {
     overflow-y: scroll;
     align-items: center;
 
-    .kanban-create__header-line {
+    &__header-line {
         display: flex;
         align-self: end;
         
@@ -266,12 +266,12 @@ export default {
             width: 48px;
         }
     }
-    .kanban-create__title {
+    &__title {
         font-size: 36px;
         text-align: center;
     }
 
-    .kanban-create__input-wrap{
+    &__input-wrap{
         display: flex;
         flex-direction: column;
         gap: 8px;
@@ -283,33 +283,33 @@ export default {
         }
 
         input {
-                font: inherit;
-                border: 1px solid transparent;
-                background-color: transparent;
-                border-bottom: 1px solid #5A5A65;
+            font: inherit;
+            border: 1px solid transparent;
+            background-color: transparent;
+            border-bottom: 1px solid #5A5A65;
+
+            &:focus {
+                outline: none;
             }
 
-        input:focus {
-            outline: none;
-        }
-
-        input:disabled {
-            color: #000;
-            border-bottom: 1px solid transparent;
+            &:disabled {
+                color: #000;
+                border-bottom: 1px solid transparent;
+            }
         }
 
         textarea {
-                width: 100%;
-                font: inherit;
-                border: 1px solid transparent;
-                background-color: transparent;
-                resize: none;
-                overflow: hidden;
-                border-bottom: 1px solid #5A5A65;
-        }
+            width: 100%;
+            font: inherit;
+            border: 1px solid transparent;
+            background-color: transparent;
+            resize: none;
+            overflow: hidden;
+            border-bottom: 1px solid #5A5A65;
 
-        textarea:focus {
-            outline: none;
+            &:focus {
+                outline: none;
+            }
         }
 
         .validation-error {
@@ -338,17 +338,15 @@ export default {
                 border: none;
                 font: inherit;
                 border-bottom: 1px solid #5A5A65;
-            }
 
-            select:focus {
-                outline: none;
+                &:focus {
+                    outline: none;
+                }
             }
         }
-
-
     }
 
-    .kanban-create__submit {
+    &__submit {
         padding: 8px;
         font: inherit;
         background-color: #44944A;

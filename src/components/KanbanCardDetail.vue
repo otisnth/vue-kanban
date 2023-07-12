@@ -271,11 +271,11 @@ export default {
         gap: 10px;
         font-size: 24px;
 
-        .detail-header__number {
+        &__number {
             color: #5A5A65; 
         }
 
-        .detail-header__title {
+        &__title {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -285,24 +285,23 @@ export default {
                 border: 1px solid transparent;
                 background-color: transparent;
                 border-bottom: 1px solid #5A5A65;
-            }
 
-            input:disabled {
-                color: #000;
-                border: 1px solid transparent;
-            }
+                &:disabled {
+                    color: #000;
+                    border: 1px solid transparent;
+                }
 
-            input:focus {
-                outline: none;
+                &:focus {
+                    outline: none;
+                }
             }
 
             img {
                 width: 18px;
             }
-
         }
 
-        .detail-header__close {
+        &__close {
             width: 25px;
         }
     }
@@ -321,18 +320,14 @@ export default {
             flex-direction: column;
             gap: 8px;
 
-            .detail-info__item {
+            &__item {
                 display: flex;
                 gap: 8px;
                 padding-left: 10px;
                 align-items: center;
             }
-            .detail-info__icon {
+            &__icon {
                 width: 20px;
-            }
-
-            .detail-info__text {
-
             }
         }
 
@@ -348,15 +343,15 @@ export default {
                 resize: none;
                 overflow: hidden;
                 border-bottom: 1px solid #5A5A65;
-            }
 
-            textarea:disabled {
-                color: #000;
-                border: 1px solid transparent;
-            }
+                &:disabled {
+                    color: #000;
+                    border: 1px solid transparent;
+                }
 
-            textarea:focus {
-                outline: none;
+                &:focus {
+                    outline: none;
+                }
             }
 
             img {
@@ -369,19 +364,16 @@ export default {
             display: flex;
             flex-direction: column;
             gap: 8px;
-            .detail-user__item {
+            &__item {
                 display: flex;
                 gap: 16px;
                 align-items: center;
             }
-            .detail-user__avatar {
+            &__avatar {
                     width: 36px;
                     border-radius: 50%;
             }
-            .detail-user__author {
-                
-            }
-            .detail-user__worker {
+            &__worker {
                 background-color: transparent;
                 border: none;
                 font-size: 16px;
@@ -393,9 +385,6 @@ export default {
             display: flex;
             gap: 8px;
             align-items: center;
-            .detail-date__value {
-
-            }
         }
     }
 
