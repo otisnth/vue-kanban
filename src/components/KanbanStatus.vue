@@ -57,9 +57,6 @@ export default {
             setTimeout(() => {
                 draggedItem.style.display = 'none'
             })
-            console.log(draggedItem);
-
-            console.log(evt);
 
             evt.dataTransfer.dropEffect = 'move'
             evt.dataTransfer.effectAllowed = 'move'
@@ -121,6 +118,7 @@ export default {
 
     &_select {
         background-color: #e7e7e7;
+        transition: background-color .2s;
     }
 }
 
@@ -155,6 +153,7 @@ export default {
     display: flex;
     flex-direction: column;
     gap: 8px;
+    width: 206px;
     overflow-y: scroll;
     overflow-x: hidden;
 }

@@ -15,12 +15,14 @@
             :src='require(`../assets/images/${cardFields.type.typeIcon}`)'
             :alt="cardFields.type.typeTitle" 
             :title="cardFields.type.typeTitle"
+            draggable="false"
             >
 
             <img class="kanban-card__icon" 
             :src='require(`../assets/images/${cardFields.priority.priorityIcon}`)'
             :alt="cardFields.priority.priorityTitle" 
             :title="cardFields.priority.priorityTitle"
+            draggable="false"
             >
 
         </div>
@@ -30,6 +32,7 @@
             <img class="kanban-card__avatar" 
             :src='require(`../assets/images/${cardFields.worker.workerAvatar}`)' 
             alt="Аватар"
+            draggable="false"
             >
 
             <p class="kanban-card__worker-name">

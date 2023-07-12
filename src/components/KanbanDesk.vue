@@ -197,6 +197,7 @@ export default {
             &_select {
                 background-color: #AB343A;
                 color: #fff;
+                transition: background-color .2s, color .2s;
             }
         }
     }
